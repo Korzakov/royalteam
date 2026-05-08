@@ -163,6 +163,7 @@ const summarizeTeam = async (token, team) => {
   const data = await graphql(token, TEAM_QUERY, { guildId: team.guildId, limit: REPORT_LIMIT });
   const reports = data.reportData.reports.data || [];
   const zoneReports = chooseZoneReports(reports);
+  const runAt = new Date().toISOString();
 
   if (!zoneReports.length) {
     return {
@@ -174,7 +175,7 @@ const summarizeTeam = async (token, team) => {
       total: 0,
       bestPercent: 100,
       latestKill: "Nog geen kill gevonden",
-      lastUpdated: new Date().toISOString(),
+      lastUpdated: runAt,
     };
   }
 
@@ -188,6 +189,20 @@ const summarizeTeam = async (token, team) => {
       })),
     )
     .filter((fight) => fight.encounterID > 0);
+
+  if (!fights.length) {
+    return {
+      name: team.name,
+      guildId: team.guildId,
+      raid: zoneReports[0].zone.name,
+      difficulty: "Onbekend",
+      killed: 0,
+      total: getEncounterCount(zoneReports),
+      bestPercent: 100,
+      latestKill: "Nog geen kill gevonden",
+      lastUpdated: new Date(Math.max(...zoneReports.map((report) => report.endTime))).toISOString(),
+    };
+  }
 
   const preferredDifficulty = [...new Set(fights.map((fight) => fight.difficulty))]
     .sort((a, b) => b - a)
@@ -224,6 +239,7 @@ const summarizeTeam = async (token, team) => {
 
   const raid = zoneReports[0].zone.name;
   const total = getEncounterCount(zoneReports);
+  const lastUpdated = new Date(Math.max(...zoneReports.map((report) => report.endTime))).toISOString();
 
   return {
     name: team.name,
@@ -234,7 +250,7 @@ const summarizeTeam = async (token, team) => {
     total,
     bestPercent: Number((bestWipe ?? (killsByEncounter.size === total ? 0 : 100)).toFixed(1)),
     latestKill: latestKill?.name || "Nog geen kill gevonden",
-    lastUpdated: new Date().toISOString(),
+    lastUpdated,
   };
 };
 
@@ -273,8 +289,10 @@ const main = async () => {
 
   try {
     const current = await readFile("progress.json", "utf8");
-    const currentComparable = sortKeys(JSON.parse(current));
-    const nextComparable = sortKeys(progress);
+    const { generatedAt: _currentGeneratedAt, ...currentProgress } = JSON.parse(current);
+    const { generatedAt: _nextGeneratedAt, ...nextProgress } = progress;
+    const currentComparable = sortKeys(currentProgress);
+    const nextComparable = sortKeys(nextProgress);
 
     if (JSON.stringify(currentComparable) === JSON.stringify(nextComparable)) {
       console.log("progress.json is already up to date");
