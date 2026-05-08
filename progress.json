@@ -1,24 +1,28 @@
 {
+  "generatedAt": "2026-05-08T19:34:15.271Z",
+  "source": "warcraftlogs",
   "teams": [
     {
       "name": "Crusaders",
-      "raid": "Manaforge Omega",
-      "difficulty": "Heroic",
-      "killed": 6,
+      "guildId": 744461,
+      "raid": "Mythic+ Season 1",
+      "difficulty": "Difficulty 10",
+      "killed": 5,
       "total": 8,
-      "bestPercent": 12.4,
-      "latestKill": "Nog te koppelen",
-      "lastUpdated": "2026-05-08T12:00:00Z"
+      "bestPercent": 0,
+      "latestKill": "Maisara Caverns",
+      "lastUpdated": "2026-05-06T20:56:18.132Z"
     },
     {
       "name": "Templars",
-      "raid": "Manaforge Omega",
-      "difficulty": "Mythic",
-      "killed": 3,
-      "total": 8,
-      "bestPercent": 44.8,
-      "latestKill": "Nog te koppelen",
-      "lastUpdated": "2026-05-08T12:00:00Z"
+      "guildId": 816789,
+      "raid": "VS / DR / MQD",
+      "difficulty": "Difficulty 10",
+      "killed": 1,
+      "total": 9,
+      "bestPercent": 100,
+      "latestKill": "Pit of Saron",
+      "lastUpdated": "2026-05-07T20:57:02.853Z"
     }
   ]
 }
