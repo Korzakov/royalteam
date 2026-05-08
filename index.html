@@ -98,6 +98,75 @@
       font-size: 16px;
     }
 
+    .progress-card,
+    .link-card,
+    .recruitment {
+      border-radius: 22px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      backdrop-filter: blur(8px);
+    }
+
+    .progress-card {
+      margin-bottom: 18px;
+      padding: 20px;
+    }
+
+    .progress-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    .progress-label {
+      color: #a1a1aa;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .progress-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .progress-score {
+      min-width: 76px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(251, 191, 36, 0.12);
+      border: 1px solid rgba(251, 191, 36, 0.25);
+      color: #fde68a;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 12px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .progress-fill {
+      width: 0%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(to right, #7c3aed, #facc15);
+      transition: width 0.6s ease;
+    }
+
+    .progress-meta {
+      margin-top: 12px;
+      color: #a1a1aa;
+      font-size: 14px;
+    }
+
     .links {
       display: flex;
       flex-direction: column;
@@ -111,12 +180,7 @@
       padding: 18px;
       text-decoration: none;
       color: white;
-      border-radius: 22px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.08);
-      backdrop-filter: blur(8px);
       transition: all 0.2s ease;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
       will-change: transform;
     }
 
@@ -165,9 +229,6 @@
       display: block;
       margin-top: 28px;
       padding: 20px;
-      border-radius: 22px;
-      background: rgba(0,0,0,0.2);
-      border: 1px solid rgba(255,255,255,0.08);
       text-align: center;
       color: #d4d4d8;
       text-decoration: none;
@@ -215,6 +276,11 @@
       .link-card {
         padding: 16px;
       }
+
+      .progress-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
     }
   </style>
 </head>
@@ -226,6 +292,24 @@
       <h1>RoyalTeam</h1>
       <p class="subtitle">Silvermoon EU • Raiding • Mythic+ • Community</p>
     </header>
+
+    <section class="progress-card" aria-live="polite">
+      <div class="progress-header">
+        <div>
+          <div class="progress-label">Raid Progress</div>
+          <div class="progress-title" id="raid-name">Progress laden...</div>
+        </div>
+        <div class="progress-score" id="raid-score">--/--</div>
+      </div>
+
+      <div class="progress-bar" aria-hidden="true">
+        <div class="progress-fill" id="raid-progress-fill"></div>
+      </div>
+
+      <div class="progress-meta" id="raid-meta">
+        Live data wordt opgehaald via Raider.IO.
+      </div>
+    </section>
 
     <main class="links">
       <a class="link-card" href="https://discord.gg/2UTBfxj" target="_blank" rel="noopener noreferrer">
@@ -268,5 +352,73 @@
 
     <footer>© 2026 RoyalTeam • Silvermoon EU</footer>
   </div>
+
+  <script>
+    const raidName = document.getElementById("raid-name");
+    const raidScore = document.getElementById("raid-score");
+    const raidMeta = document.getElementById("raid-meta");
+    const raidProgressFill = document.getElementById("raid-progress-fill");
+
+    const apiUrl = "https://raider.io/api/v1/guilds/profile?region=eu&realm=silvermoon&name=RoyalTeam&fields=raid_progression";
+
+    function formatRaidName(slug) {
+      return slug
+        .split("-")
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" ");
+    }
+
+    function getLatestRaidProgress(raidProgression) {
+      const raids = Object.entries(raidProgression || {});
+
+      if (!raids.length) {
+        return null;
+      }
+
+      const [raidSlug, raidData] = raids[raids.length - 1];
+      const difficulties = ["mythic", "heroic", "normal"];
+      const difficulty = difficulties.find((level) => raidData[level]?.total_bosses) || "normal";
+      const progress = raidData[difficulty];
+
+      return {
+        raid: formatRaidName(raidSlug),
+        difficulty,
+        killed: progress.killed_bosses || 0,
+        total: progress.total_bosses || 0,
+      };
+    }
+
+    async function loadRaidProgress() {
+      try {
+        const response = await fetch(apiUrl);
+
+        if (!response.ok) {
+          throw new Error("Raider.IO gaf geen geldige response terug.");
+        }
+
+        const data = await response.json();
+        const latestProgress = getLatestRaidProgress(data.raid_progression);
+
+        if (!latestProgress || !latestProgress.total) {
+          throw new Error("Geen raid progress gevonden.");
+        }
+
+        const percentage = Math.round((latestProgress.killed / latestProgress.total) * 100);
+        const difficulty = latestProgress.difficulty.charAt(0).toUpperCase() + latestProgress.difficulty.slice(1);
+
+        raidName.textContent = latestProgress.raid;
+        raidScore.textContent = `${latestProgress.killed}/${latestProgress.total}`;
+        raidProgressFill.style.width = `${percentage}%`;
+        raidMeta.textContent = `${difficulty} progress • ${percentage}% voltooid`;
+      } catch (error) {
+        raidName.textContent = "RoyalTeam Raid Progress";
+        raidScore.textContent = "Bekijk";
+        raidProgressFill.style.width = "100%";
+        raidMeta.innerHTML = 'Live progress kon niet geladen worden. Bekijk de actuele progress via <a href="https://raider.io/guilds/eu/silvermoon/RoyalTeam" target="_blank" rel="noopener noreferrer" style="color:#fde68a;">Raider.IO</a>.';
+      }
+    }
+
+    loadRaidProgress();
+  </script>
 </body>
 </html>
