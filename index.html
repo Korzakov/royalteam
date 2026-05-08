@@ -4,9 +4,331 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>RoyalTeam | Silvermoon EU</title>
-  <meta name="description" content="RoyalTeam is een World of Warcraft guild op Silvermoon EU. Vind onze Discord, Raider.IO, Warcraft Logs en raid progress.">
+  <meta
+    name="description"
+    content="RoyalTeam is een World of Warcraft guild op Silvermoon EU. Vind onze Discord, Raider.IO, Warcraft Logs en raid progress."
+  >
   <style>
-    *{box-sizing:border-box;margin:0;padding:0}:root{color-scheme:dark;--bg:#09090b;--card:rgba(255,255,255,.06);--card-strong:rgba(255,255,255,.09);--line:rgba(255,255,255,.1);--text:#fff;--muted:#a1a1aa;--gold:#facc15;--gold-soft:#fde68a;--violet:#7c3aed}body{min-width:320px;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px 20px;background:radial-gradient(circle at top,rgba(124,58,237,.22),transparent 35%),radial-gradient(circle at bottom,rgba(245,158,11,.16),transparent 36%),var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.5}body::after{content:"";position:fixed;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:48px 48px;pointer-events:none}a{color:inherit}.container{width:min(100%,640px);animation:fade-in .6s ease-out}.header{margin-bottom:28px;text-align:center}.logo{width:94px;height:94px;display:grid;place-items:center;margin:0 auto 18px;border:1px solid rgba(250,204,21,.35);border-radius:50%;background:rgba(24,24,27,.92);box-shadow:0 0 42px rgba(250,204,21,.15);color:var(--gold-soft);font-size:2rem;font-weight:900}.badge{display:inline-flex;min-height:36px;align-items:center;padding:0 16px;margin-bottom:16px;border:1px solid rgba(167,139,250,.22);border-radius:999px;background:rgba(124,58,237,.15);color:#ddd6fe;font-size:.9rem;font-weight:700}h1{margin-bottom:10px;background:linear-gradient(90deg,#fde68a,#facc15,#d97706);background-clip:text;color:transparent;font-size:clamp(2.65rem,14vw,4rem);font-weight:900;line-height:.95}.subtitle{color:var(--muted);font-size:1rem}.progress-stack,.links{display:grid;gap:14px}.progress-stack{margin-bottom:18px}.progress-heading{display:flex;align-items:end;justify-content:space-between;gap:14px;margin:0 2px;color:var(--muted);font-size:.86rem}.progress-heading strong{color:var(--text);font-size:1rem}.progress-card,.link-card,.recruitment{border:1px solid var(--line);border-radius:22px;background:var(--card);box-shadow:0 10px 25px rgba(0,0,0,.25);backdrop-filter:blur(8px)}.progress-card{padding:18px}.progress-top{display:flex;align-items:start;justify-content:space-between;gap:16px;margin-bottom:14px}.progress-label{color:var(--muted);font-size:.78rem;font-weight:800;letter-spacing:0;text-transform:uppercase}.progress-title{margin-top:4px;font-size:1.18rem;font-weight:900}.progress-score{min-width:76px;padding:8px 12px;border:1px solid rgba(250,204,21,.25);border-radius:999px;background:rgba(250,204,21,.12);color:var(--gold-soft);font-weight:900;text-align:center}.progress-bar{height:12px;overflow:hidden;border-radius:999px;background:rgba(255,255,255,.08)}.progress-fill{width:var(--progress,0%);height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--violet),var(--gold));transition:width .6s ease}.progress-meta{margin-top:11px;color:var(--muted);font-size:.9rem}.links{margin-top:18px}.link-card{display:flex;align-items:center;gap:16px;padding:18px;color:var(--text);text-decoration:none;transition:transform .2s ease,background .2s ease,border-color .2s ease;will-change:transform}.link-card:hover,.link-card:focus-visible,.recruitment:hover,.recruitment:focus-visible{border-color:rgba(250,204,21,.42);background:var(--card-strong);outline:none}.link-card:hover,.link-card:focus-visible{transform:translateY(-3px)}.icon{width:52px;height:52px;display:grid;place-items:center;flex:0 0 auto;border-radius:16px;background:rgba(9,9,11,.72);color:var(--gold-soft);font-weight:900}.link-content{flex:1;min-width:0}.link-title{margin-bottom:4px;font-size:1.08rem;font-weight:800}.link-description{color:var(--muted);font-size:.9rem}.arrow{color:#71717a;font-size:1.2rem}.recruitment{display:block;margin-top:26px;padding:20px;color:#d4d4d8;text-align:center;text-decoration:none;transition:background .2s ease,border-color .2s ease}.recruitment strong{display:block;margin-bottom:8px;color:var(--text);font-size:1rem}footer{margin-top:28px;color:#71717a;font-size:.82rem;text-align:center}@keyframes fade-in{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}@media(max-width:640px){body{align-items:flex-start;padding:26px 16px}.progress-heading,.progress-top{display:grid}.link-card{padding:16px}}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      color-scheme: dark;
+      --bg: #09090b;
+      --card: rgba(255, 255, 255, 0.06);
+      --card-strong: rgba(255, 255, 255, 0.09);
+      --line: rgba(255, 255, 255, 0.1);
+      --text: #ffffff;
+      --muted: #a1a1aa;
+      --gold: #facc15;
+      --gold-soft: #fde68a;
+      --violet: #7c3aed;
+      --green: #86efac;
+    }
+
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      background:
+        radial-gradient(circle at top, rgba(124, 58, 237, 0.22), transparent 35%),
+        radial-gradient(circle at bottom, rgba(245, 158, 11, 0.16), transparent 36%),
+        var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.5;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(100%, 640px);
+      animation: fade-in 0.6s ease-out;
+    }
+
+    .header {
+      margin-bottom: 28px;
+      text-align: center;
+    }
+
+    .logo {
+      width: 94px;
+      height: 94px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 18px;
+      border: 1px solid rgba(250, 204, 21, 0.35);
+      border-radius: 50%;
+      background: rgba(24, 24, 27, 0.92);
+      box-shadow: 0 0 42px rgba(250, 204, 21, 0.15);
+      color: var(--gold-soft);
+      font-size: 2rem;
+      font-weight: 900;
+    }
+
+    .badge {
+      display: inline-flex;
+      min-height: 36px;
+      align-items: center;
+      padding: 0 16px;
+      margin-bottom: 16px;
+      border: 1px solid rgba(167, 139, 250, 0.22);
+      border-radius: 999px;
+      background: rgba(124, 58, 237, 0.15);
+      color: #ddd6fe;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, #fde68a, #facc15, #d97706);
+      background-clip: text;
+      color: transparent;
+      font-size: clamp(2.65rem, 14vw, 4rem);
+      font-weight: 900;
+      line-height: 0.95;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .progress-stack,
+    .links {
+      display: grid;
+      gap: 14px;
+    }
+
+    .progress-stack {
+      margin-bottom: 18px;
+    }
+
+    .progress-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 14px;
+      margin: 0 2px;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .progress-heading strong {
+      color: var(--text);
+      font-size: 1rem;
+    }
+
+    .progress-card,
+    .link-card,
+    .recruitment {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: var(--card);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(8px);
+    }
+
+    .progress-card {
+      padding: 18px;
+    }
+
+    .progress-top {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    .progress-label {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .progress-title {
+      margin-top: 4px;
+      font-size: 1.18rem;
+      font-weight: 900;
+    }
+
+    .progress-score {
+      min-width: 76px;
+      padding: 8px 12px;
+      border: 1px solid rgba(250, 204, 21, 0.25);
+      border-radius: 999px;
+      background: rgba(250, 204, 21, 0.12);
+      color: var(--gold-soft);
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .progress-bar {
+      height: 12px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .progress-fill {
+      width: var(--progress, 0%);
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--violet), var(--gold));
+      transition: width 0.6s ease;
+    }
+
+    .progress-meta {
+      margin-top: 11px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .links {
+      margin-top: 18px;
+    }
+
+    .link-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px;
+      color: var(--text);
+      text-decoration: none;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+      will-change: transform;
+    }
+
+    .link-card:hover,
+    .link-card:focus-visible,
+    .recruitment:hover,
+    .recruitment:focus-visible {
+      border-color: rgba(250, 204, 21, 0.42);
+      background: var(--card-strong);
+      outline: none;
+    }
+
+    .link-card:hover,
+    .link-card:focus-visible {
+      transform: translateY(-3px);
+    }
+
+    .icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border-radius: 16px;
+      background: rgba(9, 9, 11, 0.72);
+      color: var(--gold-soft);
+      font-weight: 900;
+      overflow: hidden;
+    }
+
+    .icon img {
+      width: 34px;
+      height: 34px;
+      display: block;
+      object-fit: contain;
+    }
+
+    .link-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .link-title {
+      margin-bottom: 4px;
+      font-size: 1.08rem;
+      font-weight: 800;
+    }
+
+    .link-description {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .arrow {
+      color: #71717a;
+      font-size: 1.2rem;
+    }
+
+    .recruitment {
+      display: block;
+      margin-top: 26px;
+      padding: 20px;
+      color: #d4d4d8;
+      text-align: center;
+      text-decoration: none;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .recruitment strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text);
+      font-size: 1rem;
+    }
+
+    footer {
+      margin-top: 28px;
+      color: #71717a;
+      font-size: 0.82rem;
+      text-align: center;
+    }
+
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 640px) {
+      body {
+        align-items: flex-start;
+        padding: 26px 16px;
+      }
+
+      .progress-heading,
+      .progress-top {
+        display: grid;
+      }
+
+      .link-card {
+        padding: 16px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -28,23 +350,45 @@
 
     <main class="links" aria-label="RoyalTeam links">
       <a class="link-card" href="https://discord.gg/2UTBfxj" target="_blank" rel="noopener noreferrer">
-        <div class="icon" aria-hidden="true">DC</div>
-        <div class="link-content"><div class="link-title">Join onze Discord</div><div class="link-description">Praat mee, meld je aan voor raids en blijf op de hoogte.</div></div>
+        <div class="icon" aria-hidden="true">
+          <img src="assets/discord-icon.png" alt="">
+        </div>
+        <div class="link-content">
+          <div class="link-title">Join onze Discord</div>
+          <div class="link-description">Praat mee, meld je aan voor raids en blijf op de hoogte.</div>
+        </div>
         <div class="arrow" aria-hidden="true">-&gt;</div>
       </a>
+
       <a class="link-card" href="https://raider.io/guilds/eu/silvermoon/RoyalTeam" target="_blank" rel="noopener noreferrer">
-        <div class="icon" aria-hidden="true">RIO</div>
-        <div class="link-content"><div class="link-title">RoyalTeam op Raider.IO</div><div class="link-description">Bekijk Mythic+ progress, ranks en guild profiel.</div></div>
+        <div class="icon" aria-hidden="true">
+          <img src="assets/raiderio-icon.png" alt="">
+        </div>
+        <div class="link-content">
+          <div class="link-title">RoyalTeam op Raider.IO</div>
+          <div class="link-description">Bekijk Mythic+ progress, ranks en guild profiel.</div>
+        </div>
         <div class="arrow" aria-hidden="true">-&gt;</div>
       </a>
+
       <a class="link-card" href="https://www.warcraftlogs.com/guild/eu/silvermoon/RoyalTeam" target="_blank" rel="noopener noreferrer">
-        <div class="icon" aria-hidden="true">WCL</div>
-        <div class="link-content"><div class="link-title">Warcraft Logs</div><div class="link-description">Raid logs, progress en performance van RoyalTeam.</div></div>
+        <div class="icon" aria-hidden="true">
+          <img src="assets/warcraftlogs-icon.png" alt="">
+        </div>
+        <div class="link-content">
+          <div class="link-title">Warcraft Logs</div>
+          <div class="link-description">Raid logs, progress en performance van RoyalTeam.</div>
+        </div>
         <div class="arrow" aria-hidden="true">-&gt;</div>
       </a>
     </main>
 
-    <a class="recruitment" href="https://discord.gg/EQys4YTHCk" target="_blank" rel="noopener noreferrer">
+    <a
+      class="recruitment"
+      href="https://discord.gg/EQys4YTHCk"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <strong>Wil je joinen?</strong>
       Klik hier om direct naar het apply kanaal op onze Discord server te gaan.
     </a>
@@ -55,23 +399,84 @@
   <script>
     const progressTeams = document.querySelector("#progressTeams");
     const progressUpdated = document.querySelector("#progressUpdated");
-    const fallbackProgress = { teams: [{ name: "Crusaders", raid: "Manaforge Omega", difficulty: "Heroic", killed: 6, total: 8, bestPercent: 12.4, latestKill: "Nog te koppelen", lastUpdated: "2026-05-08T12:00:00Z" }, { name: "Templars", raid: "Manaforge Omega", difficulty: "Mythic", killed: 3, total: 8, bestPercent: 44.8, latestKill: "Nog te koppelen", lastUpdated: "2026-05-08T12:00:00Z" }] };
-    const formatDate = (value) => new Intl.DateTimeFormat("nl-NL", { dateStyle: "medium", timeStyle: "short" }).format(new Date(value));
+
+    const fallbackProgress = {
+      teams: [
+        {
+          name: "Crusaders",
+          raid: "Manaforge Omega",
+          difficulty: "Heroic",
+          killed: 6,
+          total: 8,
+          bestPercent: 12.4,
+          latestKill: "Nog te koppelen",
+          lastUpdated: "2026-05-08T12:00:00Z"
+        },
+        {
+          name: "Templars",
+          raid: "Manaforge Omega",
+          difficulty: "Mythic",
+          killed: 3,
+          total: 8,
+          bestPercent: 44.8,
+          latestKill: "Nog te koppelen",
+          lastUpdated: "2026-05-08T12:00:00Z"
+        }
+      ]
+    };
+
+    const formatDate = (value) =>
+      new Intl.DateTimeFormat("nl-NL", {
+        dateStyle: "medium",
+        timeStyle: "short"
+      }).format(new Date(value));
+
     const renderProgress = (data) => {
-      progressTeams.innerHTML = data.teams.map((team) => {
-        const progress = Math.round((team.killed / team.total) * 100);
-        return `<article class="progress-card"><div class="progress-top"><div><div class="progress-label">${team.name}</div><div class="progress-title">${team.raid}</div></div><div class="progress-score">${team.killed}/${team.total}</div></div><div class="progress-bar" aria-hidden="true"><div class="progress-fill" style="--progress: ${progress}%"></div></div><div class="progress-meta">${team.difficulty} - ${progress}% voltooid - best pull ${team.bestPercent}% - laatste kill: ${team.latestKill || "Nog te koppelen"}</div></article>`;
-      }).join("");
-      const newestUpdate = data.teams.map((team) => team.lastUpdated).sort().at(-1);
+      progressTeams.innerHTML = data.teams
+        .map((team) => {
+          const progress = Math.round((team.killed / team.total) * 100);
+
+          return `
+            <article class="progress-card">
+              <div class="progress-top">
+                <div>
+                  <div class="progress-label">${team.name}</div>
+                  <div class="progress-title">${team.raid}</div>
+                </div>
+                <div class="progress-score">${team.killed}/${team.total}</div>
+              </div>
+              <div class="progress-bar" aria-hidden="true">
+                <div class="progress-fill" style="--progress: ${progress}%"></div>
+              </div>
+              <div class="progress-meta">
+                ${team.difficulty} - ${progress}% voltooid - best pull ${team.bestPercent}% - laatste kill: ${team.latestKill || "Nog te koppelen"}
+              </div>
+            </article>
+          `;
+        })
+        .join("");
+
+      const newestUpdate = data.teams
+        .map((team) => team.lastUpdated)
+        .sort()
+        .at(-1);
+
       progressUpdated.textContent = `Laatst bijgewerkt: ${formatDate(newestUpdate)}`;
     };
-    fetch("progress.json", { cache: "no-store" }).then((response) => {
-      if (!response.ok) throw new Error("Progress data niet gevonden");
-      return response.json();
-    }).then(renderProgress).catch(() => {
-      renderProgress(fallbackProgress);
-      progressUpdated.textContent = "Voorbeeldprogress geladen.";
-    });
+
+    fetch("progress.json", { cache: "no-store" })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Progress data niet gevonden");
+        }
+
+        return response.json();
+      })
+      .then(renderProgress)
+      .catch(() => {
+        renderProgress(fallbackProgress);
+        progressUpdated.textContent = "Voorbeeldprogress geladen.";
+      });
   </script>
 </body>
 </html>
