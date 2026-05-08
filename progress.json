@@ -1,32 +1,28 @@
 {
-  "generatedAt": "2026-05-08T19:50:42.191Z",
+  "generatedAt": "2026-05-08T20:29:28.483Z",
   "source": "warcraftlogs",
   "teams": [
     {
       "name": "Crusaders",
       "guildId": 744461,
-      "zoneId": 47,
-      "raid": "Mythic+ Season 1",
-      "difficulty": "Mythic",
-      "killed": 3,
+      "zoneId": 44,
+      "raid": "Manaforge Omega",
+      "killed": null,
       "total": 8,
-      "bestPercent": 1.6,
-      "latestKill": "Vorasius",
+      "progressText": "Progress beschikbaar",
       "rankings": null,
-      "lastUpdated": "2026-05-06T20:56:18.132Z"
+      "lastUpdated": "2026-05-08T20:29:28.322Z"
     },
     {
       "name": "Templars",
       "guildId": 816789,
-      "zoneId": 46,
-      "raid": "VS / DR / MQD",
-      "difficulty": "Mythic",
-      "killed": 3,
-      "total": 9,
-      "bestPercent": 0.2,
-      "latestKill": "Vorasius",
+      "zoneId": 44,
+      "raid": "Manaforge Omega",
+      "killed": null,
+      "total": 8,
+      "progressText": "Progress beschikbaar",
       "rankings": null,
-      "lastUpdated": "2026-05-07T20:57:02.853Z"
+      "lastUpdated": "2026-05-08T20:29:28.483Z"
     }
   ]
 }
