@@ -1,424 +1,172 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="nl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RoyalTeam | Silvermoon EU</title>
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #09090b;
-      color: white;
-      min-height: 100vh;
-      overflow-x: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 20px;
-      position: relative;
-      line-height: 1.5;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(circle at top, rgba(124, 58, 237, 0.2), transparent 35%),
-        radial-gradient(circle at bottom, rgba(245, 158, 11, 0.15), transparent 35%);
-      z-index: -2;
-    }
-
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-      background-size: 48px 48px;
-      z-index: -1;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 600px;
-      animation: fadeIn 0.7s ease-out;
-    }
-
-    .header {
-      text-align: center;
-      margin-bottom: 35px;
-    }
-
-    .logo {
-      width: 100px;
-      height: 100px;
-      margin: 0 auto 20px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 48px;
-      background: rgba(24, 24, 27, 0.9);
-      border: 1px solid rgba(251, 191, 36, 0.3);
-      box-shadow: 0 0 40px rgba(251, 191, 36, 0.15);
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 10px 18px;
-      border-radius: 999px;
-      background: rgba(124, 58, 237, 0.15);
-      border: 1px solid rgba(167, 139, 250, 0.2);
-      color: #ddd6fe;
-      font-size: 14px;
-      margin-bottom: 18px;
-    }
-
-    h1 {
-      font-size: 56px;
-      font-weight: 900;
-      background: linear-gradient(to right, #fde68a, #facc15, #d97706);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 12px;
-    }
-
-    .subtitle {
-      color: #a1a1aa;
-      font-size: 16px;
-    }
-
-    .progress-card,
-    .link-card,
-    .recruitment {
-      border-radius: 22px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-      backdrop-filter: blur(8px);
-    }
-
-    .progress-card {
-      margin-bottom: 18px;
-      padding: 20px;
-    }
-
-    .progress-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 14px;
-    }
-
-    .progress-label {
-      color: #a1a1aa;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .progress-title {
-      font-size: 20px;
-      font-weight: 800;
-      color: #fff;
-    }
-
-    .progress-score {
-      min-width: 76px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(251, 191, 36, 0.12);
-      border: 1px solid rgba(251, 191, 36, 0.25);
-      color: #fde68a;
-      font-weight: 800;
-      text-align: center;
-    }
-
-    .progress-bar {
-      width: 100%;
-      height: 12px;
-      overflow: hidden;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.08);
-    }
-
-    .progress-fill {
-      width: 0%;
-      height: 100%;
-      border-radius: inherit;
-      background: linear-gradient(to right, #7c3aed, #facc15);
-      transition: width 0.6s ease;
-    }
-
-    .progress-meta {
-      margin-top: 12px;
-      color: #a1a1aa;
-      font-size: 14px;
-    }
-
-    .links {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .link-card {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      padding: 18px;
-      text-decoration: none;
-      color: white;
-      transition: all 0.2s ease;
-      will-change: transform;
-    }
-
-    .link-card:hover,
-    .link-card:focus-visible {
-      transform: translateY(-4px) scale(1.02);
-      border-color: rgba(251, 191, 36, 0.4);
-      background: rgba(255,255,255,0.09);
-      outline: none;
-    }
-
-    .icon {
-      width: 54px;
-      height: 54px;
-      border-radius: 16px;
-      background: rgba(9, 9, 11, 0.7);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 26px;
-      flex-shrink: 0;
-    }
-
-    .link-content {
-      flex: 1;
-    }
-
-    .link-title {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-
-    .link-description {
-      color: #a1a1aa;
-      font-size: 14px;
-      line-height: 1.4;
-    }
-
-    .arrow {
-      color: #71717a;
-      font-size: 20px;
-    }
-
-    .recruitment {
-      display: block;
-      margin-top: 28px;
-      padding: 20px;
-      text-align: center;
-      color: #d4d4d8;
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
-
-    .recruitment:hover,
-    .recruitment:focus-visible {
-      border-color: rgba(251, 191, 36, 0.4);
-      background: rgba(255,255,255,0.06);
-      outline: none;
-    }
-
-    .recruitment strong {
-      display: block;
-      margin-bottom: 8px;
-      color: white;
-      font-size: 16px;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 30px;
-      color: #71717a;
-      font-size: 13px;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(18px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @media (max-width: 640px) {
-      h1 {
-        font-size: 42px;
-      }
-
-      .link-card {
-        padding: 16px;
-      }
-
-      .progress-header {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <header class="header">
-      <div class="logo" aria-hidden="true">👑</div>
-      <div class="badge">⚔️ World of Warcraft Guild</div>
-      <h1>RoyalTeam</h1>
-      <p class="subtitle">Silvermoon EU • Raiding • Mythic+ • Community</p>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RoyalTeam - Silvermoon</title>
+    <meta
+      name="description"
+      content="RoyalTeam is een World of Warcraft guild op Silvermoon met focus op raids, Mythic+ en een volwassen community."
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header" aria-label="Hoofdnavigatie">
+      <a class="brand" href="#home" aria-label="RoyalTeam home">
+        <span class="brand-mark">RT</span>
+        <span>
+          <strong>RoyalTeam</strong>
+          <small>Silvermoon</small>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="Pagina onderdelen">
+        <a href="#about">Over ons</a>
+        <a href="#raid">Raid</a>
+        <a href="#code">Guildcode</a>
+        <a href="#recruitment">Recruitment</a>
+        <a href="#apply">Join</a>
+      </nav>
     </header>
 
-    <section class="progress-card" aria-live="polite">
-      <div class="progress-header">
+    <main id="home">
+      <section class="hero" aria-label="RoyalTeam guild introductie">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <p class="eyebrow">World of Warcraft guild op Silvermoon</p>
+          <h1>RoyalTeam</h1>
+          <p class="hero-copy">
+            Een stabiele, volwassen guild voor spelers die progress willen maken zonder dat de sfeer kapot gaat.
+          </p>
+          <div class="hero-actions" aria-label="Belangrijkste acties">
+            <a class="button primary" href="https://discord.gg/2UTBfxj">Open Discord</a>
+            <a class="button ghost" href="#progress">Bekijk progress</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="link-hub" aria-label="RoyalTeam links">
+        <a href="https://discord.gg/2UTBfxj">
+          <span>Discord</span>
+          <strong>Join de community</strong>
+        </a>
+        <a href="https://raider.io/guilds/eu/silvermoon/RoyalTeam">
+          <span>Raider.IO</span>
+          <strong>Bekijk guildprofiel</strong>
+        </a>
+        <a href="https://www.warcraftlogs.com/guild/eu/silvermoon/RoyalTeam">
+          <span>Warcraft Logs</span>
+          <strong>Logs & rankings</strong>
+        </a>
+      </section>
+
+      <section class="quick-stats" aria-label="Guild informatie">
+        <article><span>Realm</span><strong>Silvermoon</strong></article>
+        <article><span>Focus</span><strong>Raids & Mythic+</strong></article>
+        <article><span>Progress</span><strong>Heroic / Mythic</strong></article>
+        <article><span>Stem</span><strong>Rustig, scherp, sociaal</strong></article>
+      </section>
+
+      <section id="about" class="section two-column">
         <div>
-          <div class="progress-label">Raid Progress</div>
-          <div class="progress-title" id="raid-name">Progress laden...</div>
+          <p class="section-kicker">Wie wij zijn</p>
+          <h2>Een guild waar voorbereiding en plezier samen mogen bestaan.</h2>
         </div>
-        <div class="progress-score" id="raid-score">--/--</div>
-      </div>
-
-      <div class="progress-bar" aria-hidden="true">
-        <div class="progress-fill" id="raid-progress-fill"></div>
-      </div>
-
-      <div class="progress-meta" id="raid-meta">
-        Live data wordt opgehaald via Raider.IO.
-      </div>
-    </section>
-
-    <main class="links">
-      <a class="link-card" href="https://discord.gg/2UTBfxj" target="_blank" rel="noopener noreferrer">
-        <div class="icon">💬</div>
-        <div class="link-content">
-          <div class="link-title">Join onze Discord</div>
-          <div class="link-description">Praat mee, meld je aan voor raids en blijf op de hoogte.</div>
+        <div class="body-copy">
+          <p>RoyalTeam is gebouwd rond vaste avonden, duidelijke communicatie en spelers die elkaar beter maken. We houden van progress, maar niet van eindeloze drama-patches in Discord.</p>
+          <p>Nieuwe spelers krijgen ruimte om in te groeien. Ervaren spelers krijgen structuur, doelen en een groep die op tijd klaarstaat.</p>
         </div>
-        <div class="arrow">↗</div>
-      </a>
+      </section>
 
-      <a class="link-card" href="https://raider.io/guilds/eu/silvermoon/RoyalTeam" target="_blank" rel="noopener noreferrer">
-        <div class="icon">🛡️</div>
-        <div class="link-content">
-          <div class="link-title">RoyalTeam op Raider.IO</div>
-          <div class="link-description">Bekijk onze Mythic+ progress, ranks en guild profiel.</div>
+      <section id="progress" class="section progress-section" aria-label="Guild voortgang">
+        <div class="section-heading">
+          <p class="section-kicker">Progress</p>
+          <h2>Crusaders en Templars, klaar voor de volgende pull.</h2>
+          <p class="progress-note" id="progressUpdated">Progress wordt geladen uit progress.json.</p>
         </div>
-        <div class="arrow">↗</div>
-      </a>
+        <div class="progress-layout" id="progressTeams" aria-live="polite"></div>
+      </section>
 
-      <a class="link-card" href="https://www.warcraftlogs.com/guild/eu/silvermoon/RoyalTeam" target="_blank" rel="noopener noreferrer">
-        <div class="icon">📊</div>
-        <div class="link-content">
-          <div class="link-title">Warcraft Logs</div>
-          <div class="link-description">Raid logs, progress en performance van RoyalTeam.</div>
+      <section id="raid" class="section raid-panel">
+        <div class="section-heading">
+          <p class="section-kicker">Raidteam</p>
+          <h2>Vaste avonden, heldere afspraken.</h2>
         </div>
-        <div class="arrow">↗</div>
-      </a>
+        <div class="schedule-grid">
+          <article><span class="icon" aria-hidden="true">Tue</span><h3>Dinsdag</h3><p>20:00 - 23:00 server time</p></article>
+          <article><span class="icon" aria-hidden="true">Thu</span><h3>Donderdag</h3><p>20:00 - 23:00 server time</p></article>
+          <article><span class="icon" aria-hidden="true">M+</span><h3>Mythic+</h3><p>Runs door de week, van weekly keys tot pushgroepen.</p></article>
+        </div>
+      </section>
+
+      <section id="code" class="section guild-code">
+        <div class="section-heading">
+          <p class="section-kicker">Guildcode</p>
+          <h2>Zo houden we progress prettig.</h2>
+        </div>
+        <div class="code-list">
+          <article><span>01</span><h3>Kom voorbereid</h3><p>Ken de basis van de fight, neem je consumables mee en wees op tijd online voor invites.</p></article>
+          <article><span>02</span><h3>Communiceer rustig</h3><p>Feedback mag direct zijn, maar nooit ten koste van de sfeer. We lossen dingen volwassen op.</p></article>
+          <article><span>03</span><h3>Speel voor het team</h3><p>Mechanics, defensives en utility tellen net zo hard mee als damage meters.</p></article>
+          <article><span>04</span><h3>Blijf leerbaar</h3><p>Logs, tips en wipes zijn er om beter te worden, niet om ego's te poetsen.</p></article>
+        </div>
+      </section>
+
+      <section id="recruitment" class="section recruitment">
+        <div class="section-heading">
+          <p class="section-kicker">Recruitment</p>
+          <h2>Open plekken</h2>
+          <p class="recruitment-note">Goede spelers mogen altijd praten, ook als je class niet in de hoogste prioriteit staat.</p>
+        </div>
+        <div class="role-tabs" aria-label="Recruitment filters">
+          <button class="tab active" type="button" data-filter="all">Alles</button>
+          <button class="tab" type="button" data-filter="healer">Healers</button>
+          <button class="tab" type="button" data-filter="ranged">Ranged</button>
+          <button class="tab" type="button" data-filter="melee">Melee</button>
+        </div>
+        <p class="role-count" id="roleCount" aria-live="polite"></p>
+        <div class="role-grid">
+          <article class="role-card" data-role="healer"><span class="need high">Hoog</span><h3>Holy Paladin</h3><p>Betrouwbare raid healing, cooldown timing en aanwezigheid.</p></article>
+          <article class="role-card" data-role="ranged"><span class="need high">Hoog</span><h3>Mage</h3><p>Ranged DPS met mechanics-focus en consistente performance.</p></article>
+          <article class="role-card" data-role="ranged"><span class="need medium">Medium</span><h3>Warlock</h3><p>Utility, gateways en damage wanneer het ertoe doet.</p></article>
+          <article class="role-card" data-role="melee"><span class="need medium">Medium</span><h3>Enhancement Shaman</h3><p>Sterke melee speler die ook graag Mythic+ speelt.</p></article>
+        </div>
+      </section>
+
+      <section class="section faq-section" aria-label="Veelgestelde vragen">
+        <div class="section-heading">
+          <p class="section-kicker">Praktisch</p>
+          <h2>Voordat je joined.</h2>
+        </div>
+        <div class="faq-list">
+          <details><summary>Moet ik altijd beide raidavonden kunnen?</summary><p>Voor het vaste raidteam wel. Incidenteel afmelden is geen probleem zolang je het op tijd doorgeeft.</p></details>
+          <details><summary>Kan ik ook social joinen?</summary><p>Ja. Socials zijn welkom als je bij de sfeer past en normaal met anderen omgaat.</p></details>
+          <details><summary>Welke taal gebruikt de guild?</summary><p>Nederlands in de guildomgeving, met Engelse termen waar World of Warcraft dat vanzelf vraagt.</p></details>
+        </div>
+      </section>
+
+      <section id="apply" class="section apply-section">
+        <div>
+          <p class="section-kicker">Join RoyalTeam</p>
+          <h2>Klaar om mee te doen?</h2>
+          <p class="body-copy">Vul je gegevens in en gebruik daarna de Discord-knop. De pagina bewaart niets; je krijgt alleen een nette tekst die je direct in onze recruitment Discord kunt plakken.</p>
+          <a class="button ghost apply-discord" href="https://discord.gg/EQys4YTHCk">Recruitment Discord</a>
+        </div>
+        <form class="apply-form" id="applyForm">
+          <label>Character naam<input name="character" autocomplete="nickname" placeholder="Bijv. Arthasqt" required></label>
+          <label>Class & spec<input name="spec" placeholder="Bijv. Fire Mage" required></label>
+          <label>Rol<select name="role" required><option value="">Kies je rol</option><option>Tank</option><option>Healer</option><option>Melee DPS</option><option>Ranged DPS</option></select></label>
+          <label>Bericht<textarea name="message" rows="4" placeholder="Vertel kort wat je zoekt in een guild."></textarea></label>
+          <button class="button primary" type="submit">Maak aanmeldingstekst</button>
+          <p class="form-result" id="formResult" aria-live="polite"></p>
+        </form>
+      </section>
     </main>
 
-    <a
-      class="recruitment"
-      href="https://discord.gg/EQys4YTHCk"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <strong>👥 Wil je joinen?</strong>
-      Klik hier om direct naar het apply kanaal op onze Discord server te gaan!
-    </a>
+    <footer class="site-footer">
+      <p>RoyalTeam - Silvermoon</p>
+      <a href="#home">Terug naar boven</a>
+    </footer>
 
-    <footer>© 2026 RoyalTeam • Silvermoon EU</footer>
-  </div>
-
-  <script>
-    const raidName = document.getElementById("raid-name");
-    const raidScore = document.getElementById("raid-score");
-    const raidMeta = document.getElementById("raid-meta");
-    const raidProgressFill = document.getElementById("raid-progress-fill");
-
-    const apiUrl = "https://raider.io/api/v1/guilds/profile?region=eu&realm=silvermoon&name=RoyalTeam&fields=raid_progression";
-
-    function formatRaidName(slug) {
-      return slug
-        .split("-")
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(" ");
-    }
-
-    function getLatestRaidProgress(raidProgression) {
-      const raids = Object.entries(raidProgression || {});
-
-      if (!raids.length) {
-        return null;
-      }
-
-      const [raidSlug, raidData] = raids[raids.length - 1];
-      const difficulties = ["mythic", "heroic", "normal"];
-      const difficulty = difficulties.find((level) => raidData[level]?.total_bosses) || "normal";
-      const progress = raidData[difficulty];
-
-      return {
-        raid: formatRaidName(raidSlug),
-        difficulty,
-        killed: progress.killed_bosses || 0,
-        total: progress.total_bosses || 0,
-      };
-    }
-
-    async function loadRaidProgress() {
-      try {
-        const response = await fetch(apiUrl);
-
-        if (!response.ok) {
-          throw new Error("Raider.IO gaf geen geldige response terug.");
-        }
-
-        const data = await response.json();
-        const latestProgress = getLatestRaidProgress(data.raid_progression);
-
-        if (!latestProgress || !latestProgress.total) {
-          throw new Error("Geen raid progress gevonden.");
-        }
-
-        const percentage = Math.round((latestProgress.killed / latestProgress.total) * 100);
-        const difficulty = latestProgress.difficulty.charAt(0).toUpperCase() + latestProgress.difficulty.slice(1);
-
-        raidName.textContent = latestProgress.raid;
-        raidScore.textContent = `${latestProgress.killed}/${latestProgress.total}`;
-        raidProgressFill.style.width = `${percentage}%`;
-        raidMeta.textContent = `${difficulty} progress • ${percentage}% voltooid`;
-      } catch (error) {
-        raidName.textContent = "RoyalTeam Raid Progress";
-        raidScore.textContent = "Bekijk";
-        raidProgressFill.style.width = "100%";
-        raidMeta.innerHTML = 'Live progress kon niet geladen worden. Bekijk de actuele progress via <a href="https://raider.io/guilds/eu/silvermoon/RoyalTeam" target="_blank" rel="noopener noreferrer" style="color:#fde68a;">Raider.IO</a>.';
-      }
-    }
-
-    loadRaidProgress();
-  </script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
