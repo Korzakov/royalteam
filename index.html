@@ -1,172 +1,77 @@
 <!doctype html>
 <html lang="nl">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>RoyalTeam - Silvermoon</title>
-    <meta
-      name="description"
-      content="RoyalTeam is een World of Warcraft guild op Silvermoon met focus op raids, Mythic+ en een volwassen community."
-    >
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-    <header class="site-header" aria-label="Hoofdnavigatie">
-      <a class="brand" href="#home" aria-label="RoyalTeam home">
-        <span class="brand-mark">RT</span>
-        <span>
-          <strong>RoyalTeam</strong>
-          <small>Silvermoon</small>
-        </span>
-      </a>
-      <nav class="nav-links" aria-label="Pagina onderdelen">
-        <a href="#about">Over ons</a>
-        <a href="#raid">Raid</a>
-        <a href="#code">Guildcode</a>
-        <a href="#recruitment">Recruitment</a>
-        <a href="#apply">Join</a>
-      </nav>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RoyalTeam | Silvermoon EU</title>
+  <meta name="description" content="RoyalTeam is een World of Warcraft guild op Silvermoon EU. Vind onze Discord, Raider.IO, Warcraft Logs en raid progress.">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}:root{color-scheme:dark;--bg:#09090b;--card:rgba(255,255,255,.06);--card-strong:rgba(255,255,255,.09);--line:rgba(255,255,255,.1);--text:#fff;--muted:#a1a1aa;--gold:#facc15;--gold-soft:#fde68a;--violet:#7c3aed}body{min-width:320px;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px 20px;background:radial-gradient(circle at top,rgba(124,58,237,.22),transparent 35%),radial-gradient(circle at bottom,rgba(245,158,11,.16),transparent 36%),var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.5}body::after{content:"";position:fixed;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:48px 48px;pointer-events:none}a{color:inherit}.container{width:min(100%,640px);animation:fade-in .6s ease-out}.header{margin-bottom:28px;text-align:center}.logo{width:94px;height:94px;display:grid;place-items:center;margin:0 auto 18px;border:1px solid rgba(250,204,21,.35);border-radius:50%;background:rgba(24,24,27,.92);box-shadow:0 0 42px rgba(250,204,21,.15);color:var(--gold-soft);font-size:2rem;font-weight:900}.badge{display:inline-flex;min-height:36px;align-items:center;padding:0 16px;margin-bottom:16px;border:1px solid rgba(167,139,250,.22);border-radius:999px;background:rgba(124,58,237,.15);color:#ddd6fe;font-size:.9rem;font-weight:700}h1{margin-bottom:10px;background:linear-gradient(90deg,#fde68a,#facc15,#d97706);background-clip:text;color:transparent;font-size:clamp(2.65rem,14vw,4rem);font-weight:900;line-height:.95}.subtitle{color:var(--muted);font-size:1rem}.progress-stack,.links{display:grid;gap:14px}.progress-stack{margin-bottom:18px}.progress-heading{display:flex;align-items:end;justify-content:space-between;gap:14px;margin:0 2px;color:var(--muted);font-size:.86rem}.progress-heading strong{color:var(--text);font-size:1rem}.progress-card,.link-card,.recruitment{border:1px solid var(--line);border-radius:22px;background:var(--card);box-shadow:0 10px 25px rgba(0,0,0,.25);backdrop-filter:blur(8px)}.progress-card{padding:18px}.progress-top{display:flex;align-items:start;justify-content:space-between;gap:16px;margin-bottom:14px}.progress-label{color:var(--muted);font-size:.78rem;font-weight:800;letter-spacing:0;text-transform:uppercase}.progress-title{margin-top:4px;font-size:1.18rem;font-weight:900}.progress-score{min-width:76px;padding:8px 12px;border:1px solid rgba(250,204,21,.25);border-radius:999px;background:rgba(250,204,21,.12);color:var(--gold-soft);font-weight:900;text-align:center}.progress-bar{height:12px;overflow:hidden;border-radius:999px;background:rgba(255,255,255,.08)}.progress-fill{width:var(--progress,0%);height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--violet),var(--gold));transition:width .6s ease}.progress-meta{margin-top:11px;color:var(--muted);font-size:.9rem}.links{margin-top:18px}.link-card{display:flex;align-items:center;gap:16px;padding:18px;color:var(--text);text-decoration:none;transition:transform .2s ease,background .2s ease,border-color .2s ease;will-change:transform}.link-card:hover,.link-card:focus-visible,.recruitment:hover,.recruitment:focus-visible{border-color:rgba(250,204,21,.42);background:var(--card-strong);outline:none}.link-card:hover,.link-card:focus-visible{transform:translateY(-3px)}.icon{width:52px;height:52px;display:grid;place-items:center;flex:0 0 auto;border-radius:16px;background:rgba(9,9,11,.72);color:var(--gold-soft);font-weight:900}.link-content{flex:1;min-width:0}.link-title{margin-bottom:4px;font-size:1.08rem;font-weight:800}.link-description{color:var(--muted);font-size:.9rem}.arrow{color:#71717a;font-size:1.2rem}.recruitment{display:block;margin-top:26px;padding:20px;color:#d4d4d8;text-align:center;text-decoration:none;transition:background .2s ease,border-color .2s ease}.recruitment strong{display:block;margin-bottom:8px;color:var(--text);font-size:1rem}footer{margin-top:28px;color:#71717a;font-size:.82rem;text-align:center}@keyframes fade-in{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}@media(max-width:640px){body{align-items:flex-start;padding:26px 16px}.progress-heading,.progress-top{display:grid}.link-card{padding:16px}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="logo" aria-hidden="true">RT</div>
+      <div class="badge">World of Warcraft Guild</div>
+      <h1>RoyalTeam</h1>
+      <p class="subtitle">Silvermoon EU - Raiding - Mythic+ - Community</p>
     </header>
 
-    <main id="home">
-      <section class="hero" aria-label="RoyalTeam guild introductie">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <p class="eyebrow">World of Warcraft guild op Silvermoon</p>
-          <h1>RoyalTeam</h1>
-          <p class="hero-copy">
-            Een stabiele, volwassen guild voor spelers die progress willen maken zonder dat de sfeer kapot gaat.
-          </p>
-          <div class="hero-actions" aria-label="Belangrijkste acties">
-            <a class="button primary" href="https://discord.gg/2UTBfxj">Open Discord</a>
-            <a class="button ghost" href="#progress">Bekijk progress</a>
-          </div>
-        </div>
-      </section>
+    <section class="progress-stack" aria-label="Raid progress">
+      <div class="progress-heading">
+        <strong>Raid Progress</strong>
+        <span id="progressUpdated">Progress wordt geladen...</span>
+      </div>
+      <div id="progressTeams" class="progress-stack" aria-live="polite"></div>
+    </section>
 
-      <section class="link-hub" aria-label="RoyalTeam links">
-        <a href="https://discord.gg/2UTBfxj">
-          <span>Discord</span>
-          <strong>Join de community</strong>
-        </a>
-        <a href="https://raider.io/guilds/eu/silvermoon/RoyalTeam">
-          <span>Raider.IO</span>
-          <strong>Bekijk guildprofiel</strong>
-        </a>
-        <a href="https://www.warcraftlogs.com/guild/eu/silvermoon/RoyalTeam">
-          <span>Warcraft Logs</span>
-          <strong>Logs & rankings</strong>
-        </a>
-      </section>
-
-      <section class="quick-stats" aria-label="Guild informatie">
-        <article><span>Realm</span><strong>Silvermoon</strong></article>
-        <article><span>Focus</span><strong>Raids & Mythic+</strong></article>
-        <article><span>Progress</span><strong>Heroic / Mythic</strong></article>
-        <article><span>Stem</span><strong>Rustig, scherp, sociaal</strong></article>
-      </section>
-
-      <section id="about" class="section two-column">
-        <div>
-          <p class="section-kicker">Wie wij zijn</p>
-          <h2>Een guild waar voorbereiding en plezier samen mogen bestaan.</h2>
-        </div>
-        <div class="body-copy">
-          <p>RoyalTeam is gebouwd rond vaste avonden, duidelijke communicatie en spelers die elkaar beter maken. We houden van progress, maar niet van eindeloze drama-patches in Discord.</p>
-          <p>Nieuwe spelers krijgen ruimte om in te groeien. Ervaren spelers krijgen structuur, doelen en een groep die op tijd klaarstaat.</p>
-        </div>
-      </section>
-
-      <section id="progress" class="section progress-section" aria-label="Guild voortgang">
-        <div class="section-heading">
-          <p class="section-kicker">Progress</p>
-          <h2>Crusaders en Templars, klaar voor de volgende pull.</h2>
-          <p class="progress-note" id="progressUpdated">Progress wordt geladen uit progress.json.</p>
-        </div>
-        <div class="progress-layout" id="progressTeams" aria-live="polite"></div>
-      </section>
-
-      <section id="raid" class="section raid-panel">
-        <div class="section-heading">
-          <p class="section-kicker">Raidteam</p>
-          <h2>Vaste avonden, heldere afspraken.</h2>
-        </div>
-        <div class="schedule-grid">
-          <article><span class="icon" aria-hidden="true">Tue</span><h3>Dinsdag</h3><p>20:00 - 23:00 server time</p></article>
-          <article><span class="icon" aria-hidden="true">Thu</span><h3>Donderdag</h3><p>20:00 - 23:00 server time</p></article>
-          <article><span class="icon" aria-hidden="true">M+</span><h3>Mythic+</h3><p>Runs door de week, van weekly keys tot pushgroepen.</p></article>
-        </div>
-      </section>
-
-      <section id="code" class="section guild-code">
-        <div class="section-heading">
-          <p class="section-kicker">Guildcode</p>
-          <h2>Zo houden we progress prettig.</h2>
-        </div>
-        <div class="code-list">
-          <article><span>01</span><h3>Kom voorbereid</h3><p>Ken de basis van de fight, neem je consumables mee en wees op tijd online voor invites.</p></article>
-          <article><span>02</span><h3>Communiceer rustig</h3><p>Feedback mag direct zijn, maar nooit ten koste van de sfeer. We lossen dingen volwassen op.</p></article>
-          <article><span>03</span><h3>Speel voor het team</h3><p>Mechanics, defensives en utility tellen net zo hard mee als damage meters.</p></article>
-          <article><span>04</span><h3>Blijf leerbaar</h3><p>Logs, tips en wipes zijn er om beter te worden, niet om ego's te poetsen.</p></article>
-        </div>
-      </section>
-
-      <section id="recruitment" class="section recruitment">
-        <div class="section-heading">
-          <p class="section-kicker">Recruitment</p>
-          <h2>Open plekken</h2>
-          <p class="recruitment-note">Goede spelers mogen altijd praten, ook als je class niet in de hoogste prioriteit staat.</p>
-        </div>
-        <div class="role-tabs" aria-label="Recruitment filters">
-          <button class="tab active" type="button" data-filter="all">Alles</button>
-          <button class="tab" type="button" data-filter="healer">Healers</button>
-          <button class="tab" type="button" data-filter="ranged">Ranged</button>
-          <button class="tab" type="button" data-filter="melee">Melee</button>
-        </div>
-        <p class="role-count" id="roleCount" aria-live="polite"></p>
-        <div class="role-grid">
-          <article class="role-card" data-role="healer"><span class="need high">Hoog</span><h3>Holy Paladin</h3><p>Betrouwbare raid healing, cooldown timing en aanwezigheid.</p></article>
-          <article class="role-card" data-role="ranged"><span class="need high">Hoog</span><h3>Mage</h3><p>Ranged DPS met mechanics-focus en consistente performance.</p></article>
-          <article class="role-card" data-role="ranged"><span class="need medium">Medium</span><h3>Warlock</h3><p>Utility, gateways en damage wanneer het ertoe doet.</p></article>
-          <article class="role-card" data-role="melee"><span class="need medium">Medium</span><h3>Enhancement Shaman</h3><p>Sterke melee speler die ook graag Mythic+ speelt.</p></article>
-        </div>
-      </section>
-
-      <section class="section faq-section" aria-label="Veelgestelde vragen">
-        <div class="section-heading">
-          <p class="section-kicker">Praktisch</p>
-          <h2>Voordat je joined.</h2>
-        </div>
-        <div class="faq-list">
-          <details><summary>Moet ik altijd beide raidavonden kunnen?</summary><p>Voor het vaste raidteam wel. Incidenteel afmelden is geen probleem zolang je het op tijd doorgeeft.</p></details>
-          <details><summary>Kan ik ook social joinen?</summary><p>Ja. Socials zijn welkom als je bij de sfeer past en normaal met anderen omgaat.</p></details>
-          <details><summary>Welke taal gebruikt de guild?</summary><p>Nederlands in de guildomgeving, met Engelse termen waar World of Warcraft dat vanzelf vraagt.</p></details>
-        </div>
-      </section>
-
-      <section id="apply" class="section apply-section">
-        <div>
-          <p class="section-kicker">Join RoyalTeam</p>
-          <h2>Klaar om mee te doen?</h2>
-          <p class="body-copy">Vul je gegevens in en gebruik daarna de Discord-knop. De pagina bewaart niets; je krijgt alleen een nette tekst die je direct in onze recruitment Discord kunt plakken.</p>
-          <a class="button ghost apply-discord" href="https://discord.gg/EQys4YTHCk">Recruitment Discord</a>
-        </div>
-        <form class="apply-form" id="applyForm">
-          <label>Character naam<input name="character" autocomplete="nickname" placeholder="Bijv. Arthasqt" required></label>
-          <label>Class & spec<input name="spec" placeholder="Bijv. Fire Mage" required></label>
-          <label>Rol<select name="role" required><option value="">Kies je rol</option><option>Tank</option><option>Healer</option><option>Melee DPS</option><option>Ranged DPS</option></select></label>
-          <label>Bericht<textarea name="message" rows="4" placeholder="Vertel kort wat je zoekt in een guild."></textarea></label>
-          <button class="button primary" type="submit">Maak aanmeldingstekst</button>
-          <p class="form-result" id="formResult" aria-live="polite"></p>
-        </form>
-      </section>
+    <main class="links" aria-label="RoyalTeam links">
+      <a class="link-card" href="https://discord.gg/2UTBfxj" target="_blank" rel="noopener noreferrer">
+        <div class="icon" aria-hidden="true">DC</div>
+        <div class="link-content"><div class="link-title">Join onze Discord</div><div class="link-description">Praat mee, meld je aan voor raids en blijf op de hoogte.</div></div>
+        <div class="arrow" aria-hidden="true">-&gt;</div>
+      </a>
+      <a class="link-card" href="https://raider.io/guilds/eu/silvermoon/RoyalTeam" target="_blank" rel="noopener noreferrer">
+        <div class="icon" aria-hidden="true">RIO</div>
+        <div class="link-content"><div class="link-title">RoyalTeam op Raider.IO</div><div class="link-description">Bekijk Mythic+ progress, ranks en guild profiel.</div></div>
+        <div class="arrow" aria-hidden="true">-&gt;</div>
+      </a>
+      <a class="link-card" href="https://www.warcraftlogs.com/guild/eu/silvermoon/RoyalTeam" target="_blank" rel="noopener noreferrer">
+        <div class="icon" aria-hidden="true">WCL</div>
+        <div class="link-content"><div class="link-title">Warcraft Logs</div><div class="link-description">Raid logs, progress en performance van RoyalTeam.</div></div>
+        <div class="arrow" aria-hidden="true">-&gt;</div>
+      </a>
     </main>
 
-    <footer class="site-footer">
-      <p>RoyalTeam - Silvermoon</p>
-      <a href="#home">Terug naar boven</a>
-    </footer>
+    <a class="recruitment" href="https://discord.gg/EQys4YTHCk" target="_blank" rel="noopener noreferrer">
+      <strong>Wil je joinen?</strong>
+      Klik hier om direct naar het apply kanaal op onze Discord server te gaan.
+    </a>
 
-    <script src="script.js"></script>
-  </body>
+    <footer>(c) 2026 RoyalTeam - Silvermoon EU</footer>
+  </div>
+
+  <script>
+    const progressTeams = document.querySelector("#progressTeams");
+    const progressUpdated = document.querySelector("#progressUpdated");
+    const fallbackProgress = { teams: [{ name: "Crusaders", raid: "Manaforge Omega", difficulty: "Heroic", killed: 6, total: 8, bestPercent: 12.4, latestKill: "Nog te koppelen", lastUpdated: "2026-05-08T12:00:00Z" }, { name: "Templars", raid: "Manaforge Omega", difficulty: "Mythic", killed: 3, total: 8, bestPercent: 44.8, latestKill: "Nog te koppelen", lastUpdated: "2026-05-08T12:00:00Z" }] };
+    const formatDate = (value) => new Intl.DateTimeFormat("nl-NL", { dateStyle: "medium", timeStyle: "short" }).format(new Date(value));
+    const renderProgress = (data) => {
+      progressTeams.innerHTML = data.teams.map((team) => {
+        const progress = Math.round((team.killed / team.total) * 100);
+        return `<article class="progress-card"><div class="progress-top"><div><div class="progress-label">${team.name}</div><div class="progress-title">${team.raid}</div></div><div class="progress-score">${team.killed}/${team.total}</div></div><div class="progress-bar" aria-hidden="true"><div class="progress-fill" style="--progress: ${progress}%"></div></div><div class="progress-meta">${team.difficulty} - ${progress}% voltooid - best pull ${team.bestPercent}% - laatste kill: ${team.latestKill || "Nog te koppelen"}</div></article>`;
+      }).join("");
+      const newestUpdate = data.teams.map((team) => team.lastUpdated).sort().at(-1);
+      progressUpdated.textContent = `Laatst bijgewerkt: ${formatDate(newestUpdate)}`;
+    };
+    fetch("progress.json", { cache: "no-store" }).then((response) => {
+      if (!response.ok) throw new Error("Progress data niet gevonden");
+      return response.json();
+    }).then(renderProgress).catch(() => {
+      renderProgress(fallbackProgress);
+      progressUpdated.textContent = "Voorbeeldprogress geladen.";
+    });
+  </script>
+</body>
 </html>
