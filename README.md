@@ -1,0 +1,39 @@
+# RoyalTeam guildpagina
+
+Een lokale startversie voor de World of Warcraft guild **RoyalTeam** op **Silvermoon**.
+
+## Openen
+
+Open `index.html` in je browser. Er is geen installatie of server nodig.
+
+## Bestanden
+
+- `index.html` - de pagina-inhoud
+- `styles.css` - de vormgeving
+- `script.js` - kleine interacties voor recruitment en aanmelding
+- `progress.json` - tijdelijke/static progressdata voor Crusaders en Templars
+- `assets/royalteam-hero.png` - optionele lokale hero-afbeelding
+
+## Inhoud
+
+- Hero met RoyalTeam-positionering
+- Link hub voor Discord, Raider.IO en Warcraft Logs
+- Guildstats, progressblok en raidplanning
+- Guildcode met verwachtingen voor spelers
+- Recruitmentfilter met zichtbare telling
+- FAQ en aanmeldformulier dat een Discord-tekst maakt
+
+## Guild links
+
+- Discord: https://discord.gg/2UTBfxj
+- Raider.IO: https://raider.io/guilds/eu/silvermoon/RoyalTeam
+- Warcraft Logs: https://www.warcraftlogs.com/guild/eu/silvermoon/RoyalTeam
+- Recruitment Discord: https://discord.gg/EQys4YTHCk
+
+## Volgende logische stappen
+
+- GitHub Actions workflow maken voor Warcraft Logs GraphQL
+- `WCL_CLIENT_ID` en `WCL_CLIENT_SECRET` toevoegen als GitHub Actions secrets
+- Crusaders en Templars API-mapping invullen
+- Recruitment-lijst aanpassen
+- Eventueel koppelen aan een formulier of CMS
