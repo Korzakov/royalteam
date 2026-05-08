@@ -101,7 +101,7 @@
     }
 
     h1 {
-      margin-bottom: 10px;
+      margin-bottom: 18px;
       background: linear-gradient(90deg, #fde68a, #facc15, #d97706);
       background-clip: text;
       color: transparent;
@@ -123,6 +123,12 @@
 
     .progress-stack {
       margin-bottom: 18px;
+    }
+
+    .progress-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
     }
 
     .progress-heading {
@@ -321,8 +327,13 @@
       }
 
       .progress-heading,
-      .progress-top {
+      .progress-top,
+      .progress-grid {
         display: grid;
+      }
+
+      .progress-grid {
+        grid-template-columns: 1fr;
       }
 
       .link-card {
@@ -345,7 +356,7 @@
         <strong>Raid Progress</strong>
         <span id="progressUpdated">Progress wordt geladen...</span>
       </div>
-      <div id="progressTeams" class="progress-stack" aria-live="polite"></div>
+      <div id="progressTeams" class="progress-grid" aria-live="polite"></div>
     </section>
 
     <main class="links" aria-label="RoyalTeam links">
@@ -449,7 +460,7 @@
                 <div class="progress-fill" style="--progress: ${progress}%"></div>
               </div>
               <div class="progress-meta">
-                ${team.difficulty} - ${progress}% voltooid - best pull ${team.bestPercent}% - laatste kill: ${team.latestKill || "Nog te koppelen"}
+                ${progress}% voltooid
               </div>
             </article>
           `;
