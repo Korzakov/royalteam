@@ -16,7 +16,8 @@ const DIFFICULTIES = new Map([
   [1, "LFR"],
 ]);
 
-const REPORT_LIMIT = Number(process.env.WCL_REPORT_LIMIT || 20);
+const RAID_DIFFICULTIES = new Set([3, 4, 5]);
+const REPORT_LIMIT = Number(process.env.WCL_REPORT_LIMIT || 100);
 const ZONE_ID = process.env.WCL_ZONE_ID ? Number(process.env.WCL_ZONE_ID) : null;
 
 const requireEnv = (name) => {
@@ -138,9 +139,13 @@ const getEncounterCount = (reports) => {
   return encounters.size || 0;
 };
 
+const hasRaidFight = (report) =>
+  (report.fights || []).some((fight) => fight.encounterID > 0 && RAID_DIFFICULTIES.has(fight.difficulty));
+
 const chooseZoneReports = (reports) => {
   const raidReports = reports
     .filter((report) => report.zone?.id && report.zone?.encounters?.length)
+    .filter(hasRaidFight)
     .filter((report) => !ZONE_ID || report.zone.id === ZONE_ID);
 
   if (!raidReports.length) {
@@ -188,7 +193,7 @@ const summarizeTeam = async (token, team) => {
         zoneName: report.zone.name,
       })),
     )
-    .filter((fight) => fight.encounterID > 0);
+    .filter((fight) => fight.encounterID > 0 && RAID_DIFFICULTIES.has(fight.difficulty));
 
   if (!fights.length) {
     return {
