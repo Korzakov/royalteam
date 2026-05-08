@@ -8,18 +8,9 @@ const TEAMS = [
   { name: "Templars", guildId: 816789 },
 ];
 
-const DIFFICULTIES = new Map([
-  [5, "Mythic"],
-  [4, "Heroic"],
-  [3, "Normal"],
-  [2, "Flex"],
-  [1, "LFR"],
-]);
-
-const RAID_DIFFICULTIES = new Set([3, 4, 5]);
-const REPORT_LIMIT = Number(process.env.WCL_REPORT_LIMIT || 80);
-const DETAIL_REPORT_LIMIT = Number(process.env.WCL_DETAIL_REPORT_LIMIT || 12);
-const ZONE_ID = process.env.WCL_ZONE_ID ? Number(process.env.WCL_ZONE_ID) : null;
+const ZONE_ID = Number(process.env.WCL_ZONE_ID || 44);
+const RAID_SIZE = Number(process.env.WCL_RAID_SIZE || 20);
+const FALLBACK_TOTAL = Number(process.env.WCL_BOSS_COUNT || 8);
 
 const requireEnv = (name) => {
   const value = process.env[name];
@@ -76,71 +67,22 @@ const graphql = async (token, query, variables) => {
   return payload.data;
 };
 
-const REPORTS_QUERY = `
-  query TeamReports($guildId: Int!, $limit: Int!) {
+const PROGRESS_QUERY = `
+  query TeamProgress($guildId: Int!, $zoneId: Int!, $size: Int!) {
+    worldData {
+      zone(id: $zoneId) {
+        id
+        name
+        encounters {
+          id
+          name
+        }
+      }
+    }
     guildData {
       guild(id: $guildId) {
         id
         name
-      }
-    }
-    reportData {
-      reports(guildID: $guildId, limit: $limit) {
-        data {
-          code
-          title
-          startTime
-          endTime
-          zone {
-            id
-            name
-            encounters {
-              id
-              name
-            }
-          }
-        }
-      }
-    }
-  }
-`;
-
-const REPORT_DETAIL_QUERY = `
-  query ReportDetail($code: String!) {
-    reportData {
-      report(code: $code) {
-        code
-        title
-        startTime
-        endTime
-        zone {
-          id
-          name
-          encounters {
-            id
-            name
-          }
-        }
-        fights(killType: Encounters, translate: true) {
-          id
-          name
-          encounterID
-          difficulty
-          kill
-          bossPercentage
-          fightPercentage
-          startTime
-          endTime
-        }
-      }
-    }
-  }
-`;
-
-const RANKING_QUERY = `
-  query GuildZoneRanking($guildId: Int!, $zoneId: Int!, $size: Int!) {
-    guildData {
-      guild(id: $guildId) {
         zoneRanking(zoneId: $zoneId) {
           progress(size: $size) {
             worldRank {
@@ -165,161 +107,29 @@ const RANKING_QUERY = `
   }
 `;
 
-const getFightPercent = (fight) => {
-  if (typeof fight.bossPercentage === "number") {
-    return fight.bossPercentage;
-  }
-
-  if (typeof fight.fightPercentage === "number") {
-    return fight.fightPercentage;
-  }
-
-  return null;
-};
-
-const getEncounterCount = (reports) => {
-  const encounters = new Map();
-
-  for (const report of reports) {
-    for (const encounter of report.zone?.encounters || []) {
-      encounters.set(encounter.id, encounter.name);
-    }
-  }
-
-  return encounters.size || 0;
-};
-
-const chooseZoneReports = (reports) => {
-  const raidReports = reports
-    .filter((report) => report.zone?.id && report.zone?.encounters?.length)
-    .filter((report) => !ZONE_ID || report.zone.id === ZONE_ID);
-
-  if (!raidReports.length) {
-    return [];
-  }
-
-  if (ZONE_ID) {
-    return raidReports;
-  }
-
-  const latestZoneId = raidReports
-    .slice()
-    .sort((a, b) => b.endTime - a.endTime)
-    .at(0).zone.id;
-
-  return raidReports.filter((report) => report.zone.id === latestZoneId);
-};
+const formatRank = (rank) => (rank?.number ? `World #${rank.number}` : "Progress beschikbaar");
 
 const summarizeTeam = async (token, team) => {
-  const data = await graphql(token, REPORTS_QUERY, { guildId: team.guildId, limit: REPORT_LIMIT });
-  const reports = data.reportData.reports.data || [];
-  const zoneReportCandidates = chooseZoneReports(reports);
-  const zoneReports = [];
-  const runAt = new Date().toISOString();
-
-  for (const report of zoneReportCandidates.slice(0, DETAIL_REPORT_LIMIT)) {
-    const detail = await graphql(token, REPORT_DETAIL_QUERY, { code: report.code });
-    zoneReports.push(detail.reportData.report);
-  }
-
-  const raidZoneReports = zoneReports.filter((report) =>
-    (report.fights || []).some((fight) => fight.encounterID > 0 && RAID_DIFFICULTIES.has(fight.difficulty)),
-  );
-
-  if (!raidZoneReports.length) {
-    return {
-      name: team.name,
-      guildId: team.guildId,
-      raid: zoneReportCandidates[0]?.zone?.name || "Geen raid data",
-      difficulty: "Onbekend",
-      killed: 0,
-      total: getEncounterCount(zoneReportCandidates),
-      bestPercent: 100,
-      latestKill: "Nog geen kill gevonden",
-      lastUpdated: runAt,
-    };
-  }
-
-  const fights = raidZoneReports
-    .flatMap((report) =>
-      (report.fights || []).map((fight) => ({
-        ...fight,
-        reportCode: report.code,
-        reportEndTime: report.endTime,
-        zoneName: report.zone.name,
-      })),
-    )
-    .filter((fight) => fight.encounterID > 0 && RAID_DIFFICULTIES.has(fight.difficulty));
-
-  if (!fights.length) {
-    return {
-      name: team.name,
-      guildId: team.guildId,
-      raid: raidZoneReports[0].zone.name,
-      difficulty: "Onbekend",
-      killed: 0,
-      total: getEncounterCount(raidZoneReports),
-      bestPercent: 100,
-      latestKill: "Nog geen kill gevonden",
-      lastUpdated: new Date(Math.max(...raidZoneReports.map((report) => report.endTime))).toISOString(),
-    };
-  }
-
-  const preferredDifficulty = [...new Set(fights.map((fight) => fight.difficulty))]
-    .sort((a, b) => b - a)
-    .find((difficulty) => fights.some((fight) => fight.difficulty === difficulty && fight.kill))
-    ?? [...new Set(fights.map((fight) => fight.difficulty))].sort((a, b) => b - a)[0];
-
-  const difficultyFights = fights.filter((fight) => fight.difficulty === preferredDifficulty);
-  const killsByEncounter = new Map();
-
-  for (const fight of difficultyFights) {
-    if (!fight.kill) {
-      continue;
-    }
-
-    const current = killsByEncounter.get(fight.encounterID);
-    if (!current || fight.reportEndTime > current.reportEndTime || fight.endTime > current.endTime) {
-      killsByEncounter.set(fight.encounterID, fight);
-    }
-  }
-
-  const latestKill = [...killsByEncounter.values()].sort((a, b) => {
-    if (b.reportEndTime !== a.reportEndTime) {
-      return b.reportEndTime - a.reportEndTime;
-    }
-
-    return b.endTime - a.endTime;
-  })[0];
-
-  const bestWipe = difficultyFights
-    .filter((fight) => !fight.kill)
-    .map(getFightPercent)
-    .filter((value) => typeof value === "number")
-    .sort((a, b) => a - b)[0];
-
-  const raid = raidZoneReports[0].zone.name;
-  const zoneId = raidZoneReports[0].zone.id;
-  const total = getEncounterCount(raidZoneReports);
-  const lastUpdated = new Date(Math.max(...raidZoneReports.map((report) => report.endTime))).toISOString();
-  const rankingData = await graphql(token, RANKING_QUERY, {
+  const data = await graphql(token, PROGRESS_QUERY, {
     guildId: team.guildId,
-    zoneId,
-    size: total || 20,
+    zoneId: ZONE_ID,
+    size: RAID_SIZE,
   });
+
+  const zone = data.worldData.zone;
+  const rankings = data.guildData.guild.zoneRanking.progress;
+  const total = zone?.encounters?.length || FALLBACK_TOTAL;
 
   return {
     name: team.name,
     guildId: team.guildId,
-    zoneId,
-    raid,
-    difficulty: DIFFICULTIES.get(preferredDifficulty) || `Difficulty ${preferredDifficulty}`,
-    killed: killsByEncounter.size,
+    zoneId: zone?.id || ZONE_ID,
+    raid: zone?.name || "Onbekende raid",
+    killed: null,
     total,
-    bestPercent: Number((bestWipe ?? (killsByEncounter.size === total ? 0 : 100)).toFixed(1)),
-    latestKill: latestKill?.name || "Nog geen kill gevonden",
-    rankings: rankingData.guildData.guild.zoneRanking.progress,
-    lastUpdated,
+    progressText: formatRank(rankings?.worldRank),
+    rankings,
+    lastUpdated: new Date().toISOString(),
   };
 };
 
