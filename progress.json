@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-08T20:29:28.483Z",
+  "generatedAt": "2026-05-08T20:42:48.490Z",
   "source": "warcraftlogs",
   "teams": [
     {
@@ -11,7 +11,7 @@
       "total": 8,
       "progressText": "Progress beschikbaar",
       "rankings": null,
-      "lastUpdated": "2026-05-08T20:29:28.322Z"
+      "lastUpdated": "2026-05-08T20:42:48.338Z"
     },
     {
       "name": "Templars",
@@ -22,7 +22,7 @@
       "total": 8,
       "progressText": "Progress beschikbaar",
       "rankings": null,
-      "lastUpdated": "2026-05-08T20:29:28.483Z"
+      "lastUpdated": "2026-05-08T20:42:48.490Z"
     }
   ]
 }
