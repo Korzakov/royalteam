@@ -1,28 +1,62 @@
 {
-  "generatedAt": "2026-05-08T21:05:48.093Z",
+  "generatedAt": "2026-05-08T22:30:33.048Z",
   "source": "warcraftlogs",
   "teams": [
     {
       "name": "Crusaders",
       "guildId": 744461,
-      "zoneId": 44,
-      "raid": "Manaforge Omega",
+      "zoneId": 46,
+      "raid": "VS / DR / MQD",
       "killed": null,
-      "total": 8,
-      "progressText": "Progress beschikbaar",
-      "rankings": null,
-      "lastUpdated": "2026-05-08T21:05:47.934Z"
+      "total": 9,
+      "difficulty": null,
+      "progressText": "World #4433",
+      "rankings": {
+        "worldRank": {
+          "number": 4433,
+          "percentile": null,
+          "color": "uncommon"
+        },
+        "regionRank": {
+          "number": 2019,
+          "percentile": null,
+          "color": "uncommon"
+        },
+        "serverRank": {
+          "number": 108,
+          "percentile": null,
+          "color": "epic"
+        }
+      },
+      "lastUpdated": "2026-05-08T22:30:32.155Z"
     },
     {
       "name": "Templars",
       "guildId": 816789,
-      "zoneId": 44,
-      "raid": "Manaforge Omega",
+      "zoneId": 46,
+      "raid": "VS / DR / MQD",
       "killed": null,
-      "total": 8,
-      "progressText": "Progress beschikbaar",
-      "rankings": null,
-      "lastUpdated": "2026-05-08T21:05:48.093Z"
+      "total": 9,
+      "difficulty": null,
+      "progressText": "World #4899",
+      "rankings": {
+        "worldRank": {
+          "number": 4899,
+          "percentile": null,
+          "color": "uncommon"
+        },
+        "regionRank": {
+          "number": 2255,
+          "percentile": null,
+          "color": "uncommon"
+        },
+        "serverRank": {
+          "number": 120,
+          "percentile": null,
+          "color": "epic"
+        }
+      },
+      "lastUpdated": "2026-05-08T22:30:33.048Z"
     }
   ]
 }
