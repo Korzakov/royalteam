@@ -1,0 +1,24 @@
+{
+  "teams": [
+    {
+      "name": "Crusaders",
+      "raid": "Manaforge Omega",
+      "difficulty": "Heroic",
+      "killed": 6,
+      "total": 8,
+      "bestPercent": 12.4,
+      "latestKill": "Nog te koppelen",
+      "lastUpdated": "2026-05-08T12:00:00Z"
+    },
+    {
+      "name": "Templars",
+      "raid": "Manaforge Omega",
+      "difficulty": "Mythic",
+      "killed": 3,
+      "total": 8,
+      "bestPercent": 44.8,
+      "latestKill": "Nog te koppelen",
+      "lastUpdated": "2026-05-08T12:00:00Z"
+    }
+  ]
+}
