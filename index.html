@@ -445,7 +445,10 @@
     const renderProgress = (data) => {
       progressTeams.innerHTML = data.teams
         .map((team) => {
-          const progress = Math.round((team.killed / team.total) * 100);
+          const hasKillProgress = Number.isFinite(team.killed) && Number.isFinite(team.total) && team.total > 0;
+          const progress = hasKillProgress ? Math.round((team.killed / team.total) * 100) : 0;
+          const score = hasKillProgress ? `${team.killed}/${team.total}` : team.progressText || "WCL";
+          const progressMeta = hasKillProgress ? `${progress}% voltooid` : "Warcraft Logs progress";
 
           return `
             <article class="progress-card">
@@ -454,13 +457,13 @@
                   <div class="progress-label">${team.name}</div>
                   <div class="progress-title">${team.raid}</div>
                 </div>
-                <div class="progress-score">${team.killed}/${team.total}</div>
+                <div class="progress-score">${score}</div>
               </div>
               <div class="progress-bar" aria-hidden="true">
                 <div class="progress-fill" style="--progress: ${progress}%"></div>
               </div>
               <div class="progress-meta">
-                ${progress}% voltooid
+                ${progressMeta}
               </div>
             </article>
           `;
