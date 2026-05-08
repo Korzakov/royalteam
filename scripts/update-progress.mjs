@@ -12,6 +12,7 @@ const CONFIGURED_ZONE_ID = process.env.WCL_ZONE_ID ? Number(process.env.WCL_ZONE
 const RAID_SIZE = Number(process.env.WCL_RAID_SIZE || 20);
 const RAID_DIFFICULTY = process.env.WCL_RAID_DIFFICULTY ? Number(process.env.WCL_RAID_DIFFICULTY) : null;
 const FALLBACK_TOTAL = Number(process.env.WCL_BOSS_COUNT || 8);
+const DEFAULT_RAID_DIFFICULTIES = [5, 4, 6, 3];
 
 const requireEnv = (name) => {
   const value = process.env[name];
@@ -100,11 +101,8 @@ const ZONE_QUERY = `
   }
 `;
 
-const TEAM_QUERY = `
-  query TeamProgress($guildId: Int!, $zoneId: Int!, $size: Int!, $difficulty: Int) {
-    progressRaceData {
-      progressRace(zoneID: $zoneId, difficulty: $difficulty, size: $size, guildID: $guildId)
-    }
+const RANKING_QUERY = `
+  query TeamRanking($guildId: Int!, $zoneId: Int!, $size: Int!) {
     guildData {
       guild(id: $guildId) {
         id
@@ -129,6 +127,14 @@ const TEAM_QUERY = `
           }
         }
       }
+    }
+  }
+`;
+
+const PROGRESS_RACE_QUERY = `
+  query TeamProgressRace($guildId: Int!, $zoneId: Int!, $size: Int!, $difficulty: Int) {
+    progressRaceData {
+      progressRace(zoneID: $zoneId, difficulty: $difficulty, size: $size, guildID: $guildId)
     }
   }
 `;
@@ -289,6 +295,21 @@ const parseProgressRace = (progressRace, fallbackTotal) => {
 
 const formatRank = (rank) => (rank?.number ? `World #${rank.number}` : "Progress niet gevonden");
 
+const isRaidZone = (zone) => {
+  const name = zone.name || "";
+  const encounterCount = zone.encounters?.length || 0;
+
+  return encounterCount >= 6 && !/mythic\+|season|dungeon|challenge/i.test(name);
+};
+
+const getDifficultyCandidates = () => {
+  if (RAID_DIFFICULTY) {
+    return [RAID_DIFFICULTY];
+  }
+
+  return DEFAULT_RAID_DIFFICULTIES;
+};
+
 const resolveZone = async (token) => {
   if (CONFIGURED_ZONE_ID) {
     const data = await graphql(token, ZONE_QUERY, { zoneId: CONFIGURED_ZONE_ID });
@@ -304,7 +325,7 @@ const resolveZone = async (token) => {
   const data = await graphql(token, LATEST_ZONE_QUERY);
   const raidZones = data.worldData.zones
     .filter((zone) => !zone.frozen)
-    .filter((zone) => (zone.encounters?.length || 0) >= 4)
+    .filter(isRaidZone)
     .sort((a, b) => b.id - a.id);
 
   if (!raidZones.length) {
@@ -314,17 +335,40 @@ const resolveZone = async (token) => {
   return raidZones[0];
 };
 
+const getProgressRace = async (token, team, zone) => {
+  for (const difficulty of getDifficultyCandidates()) {
+    try {
+      const data = await graphql(token, PROGRESS_RACE_QUERY, {
+        guildId: team.guildId,
+        zoneId: zone.id,
+        size: RAID_SIZE,
+        difficulty,
+      });
+      const progress = parseProgressRace(data.progressRaceData.progressRace, zone.encounters?.length || FALLBACK_TOTAL);
+
+      if (progress) {
+        return { ...progress, difficulty };
+      }
+    } catch (error) {
+      console.warn(
+        `Could not fetch progressRace for ${team.name} in zone ${zone.id} difficulty ${difficulty}: ${error.message}`
+      );
+    }
+  }
+
+  return null;
+};
+
 const summarizeTeam = async (token, team, zone) => {
-  const data = await graphql(token, TEAM_QUERY, {
+  const data = await graphql(token, RANKING_QUERY, {
     guildId: team.guildId,
     zoneId: zone.id,
     size: RAID_SIZE,
-    difficulty: RAID_DIFFICULTY,
   });
 
   const rankings = data.guildData.guild.zoneRanking.progress;
   const total = zone.encounters?.length || FALLBACK_TOTAL;
-  const parsedProgress = parseProgressRace(data.progressRaceData.progressRace, total);
+  const parsedProgress = await getProgressRace(token, team, zone);
   const killed = parsedProgress?.killed ?? null;
   const progressTotal = parsedProgress?.total || total;
 
@@ -335,6 +379,7 @@ const summarizeTeam = async (token, team, zone) => {
     raid: zone.name,
     killed,
     total: progressTotal,
+    difficulty: parsedProgress?.difficulty || RAID_DIFFICULTY,
     progressText: parsedProgress?.text || formatRank(rankings?.worldRank),
     rankings,
     lastUpdated: new Date().toISOString(),
