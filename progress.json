@@ -1,27 +1,31 @@
 {
-  "generatedAt": "2026-05-08T19:34:15.271Z",
+  "generatedAt": "2026-05-08T19:50:42.191Z",
   "source": "warcraftlogs",
   "teams": [
     {
       "name": "Crusaders",
       "guildId": 744461,
+      "zoneId": 47,
       "raid": "Mythic+ Season 1",
-      "difficulty": "Difficulty 10",
-      "killed": 5,
+      "difficulty": "Mythic",
+      "killed": 3,
       "total": 8,
-      "bestPercent": 0,
-      "latestKill": "Maisara Caverns",
+      "bestPercent": 1.6,
+      "latestKill": "Vorasius",
+      "rankings": null,
       "lastUpdated": "2026-05-06T20:56:18.132Z"
     },
     {
       "name": "Templars",
       "guildId": 816789,
+      "zoneId": 46,
       "raid": "VS / DR / MQD",
-      "difficulty": "Difficulty 10",
-      "killed": 1,
+      "difficulty": "Mythic",
+      "killed": 3,
       "total": 9,
-      "bestPercent": 100,
-      "latestKill": "Pit of Saron",
+      "bestPercent": 0.2,
+      "latestKill": "Vorasius",
+      "rankings": null,
       "lastUpdated": "2026-05-07T20:57:02.853Z"
     }
   ]
