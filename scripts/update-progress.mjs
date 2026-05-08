@@ -115,6 +115,34 @@ const TEAM_QUERY = `
   }
 `;
 
+const RANKING_QUERY = `
+  query GuildZoneRanking($guildId: Int!, $zoneId: Int!, $size: Int!) {
+    guildData {
+      guild(id: $guildId) {
+        zoneRanking(zoneId: $zoneId) {
+          progress(size: $size) {
+            worldRank {
+              number
+              percentile
+              color
+            }
+            regionRank {
+              number
+              percentile
+              color
+            }
+            serverRank {
+              number
+              percentile
+              color
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
 const getFightPercent = (fight) => {
   if (typeof fight.bossPercentage === "number") {
     return fight.bossPercentage;
@@ -243,18 +271,26 @@ const summarizeTeam = async (token, team) => {
     .sort((a, b) => a - b)[0];
 
   const raid = zoneReports[0].zone.name;
+  const zoneId = zoneReports[0].zone.id;
   const total = getEncounterCount(zoneReports);
   const lastUpdated = new Date(Math.max(...zoneReports.map((report) => report.endTime))).toISOString();
+  const rankingData = await graphql(token, RANKING_QUERY, {
+    guildId: team.guildId,
+    zoneId,
+    size: total || 20,
+  });
 
   return {
     name: team.name,
     guildId: team.guildId,
+    zoneId,
     raid,
     difficulty: DIFFICULTIES.get(preferredDifficulty) || `Difficulty ${preferredDifficulty}`,
     killed: killsByEncounter.size,
     total,
     bestPercent: Number((bestWipe ?? (killsByEncounter.size === total ? 0 : 100)).toFixed(1)),
     latestKill: latestKill?.name || "Nog geen kill gevonden",
+    rankings: rankingData.guildData.guild.zoneRanking.progress,
     lastUpdated,
   };
 };
