@@ -17,7 +17,8 @@ const DIFFICULTIES = new Map([
 ]);
 
 const RAID_DIFFICULTIES = new Set([3, 4, 5]);
-const REPORT_LIMIT = Number(process.env.WCL_REPORT_LIMIT || 100);
+const REPORT_LIMIT = Number(process.env.WCL_REPORT_LIMIT || 80);
+const DETAIL_REPORT_LIMIT = Number(process.env.WCL_DETAIL_REPORT_LIMIT || 12);
 const ZONE_ID = process.env.WCL_ZONE_ID ? Number(process.env.WCL_ZONE_ID) : null;
 
 const requireEnv = (name) => {
@@ -75,8 +76,8 @@ const graphql = async (token, query, variables) => {
   return payload.data;
 };
 
-const TEAM_QUERY = `
-  query TeamProgress($guildId: Int!, $limit: Int!) {
+const REPORTS_QUERY = `
+  query TeamReports($guildId: Int!, $limit: Int!) {
     guildData {
       guild(id: $guildId) {
         id
@@ -98,17 +99,38 @@ const TEAM_QUERY = `
               name
             }
           }
-          fights(killType: Encounters, translate: true) {
+        }
+      }
+    }
+  }
+`;
+
+const REPORT_DETAIL_QUERY = `
+  query ReportDetail($code: String!) {
+    reportData {
+      report(code: $code) {
+        code
+        title
+        startTime
+        endTime
+        zone {
+          id
+          name
+          encounters {
             id
             name
-            encounterID
-            difficulty
-            kill
-            bossPercentage
-            fightPercentage
-            startTime
-            endTime
           }
+        }
+        fights(killType: Encounters, translate: true) {
+          id
+          name
+          encounterID
+          difficulty
+          kill
+          bossPercentage
+          fightPercentage
+          startTime
+          endTime
         }
       }
     }
@@ -167,13 +189,9 @@ const getEncounterCount = (reports) => {
   return encounters.size || 0;
 };
 
-const hasRaidFight = (report) =>
-  (report.fights || []).some((fight) => fight.encounterID > 0 && RAID_DIFFICULTIES.has(fight.difficulty));
-
 const chooseZoneReports = (reports) => {
   const raidReports = reports
     .filter((report) => report.zone?.id && report.zone?.encounters?.length)
-    .filter(hasRaidFight)
     .filter((report) => !ZONE_ID || report.zone.id === ZONE_ID);
 
   if (!raidReports.length) {
@@ -193,26 +211,36 @@ const chooseZoneReports = (reports) => {
 };
 
 const summarizeTeam = async (token, team) => {
-  const data = await graphql(token, TEAM_QUERY, { guildId: team.guildId, limit: REPORT_LIMIT });
+  const data = await graphql(token, REPORTS_QUERY, { guildId: team.guildId, limit: REPORT_LIMIT });
   const reports = data.reportData.reports.data || [];
-  const zoneReports = chooseZoneReports(reports);
+  const zoneReportCandidates = chooseZoneReports(reports);
+  const zoneReports = [];
   const runAt = new Date().toISOString();
 
-  if (!zoneReports.length) {
+  for (const report of zoneReportCandidates.slice(0, DETAIL_REPORT_LIMIT)) {
+    const detail = await graphql(token, REPORT_DETAIL_QUERY, { code: report.code });
+    zoneReports.push(detail.reportData.report);
+  }
+
+  const raidZoneReports = zoneReports.filter((report) =>
+    (report.fights || []).some((fight) => fight.encounterID > 0 && RAID_DIFFICULTIES.has(fight.difficulty)),
+  );
+
+  if (!raidZoneReports.length) {
     return {
       name: team.name,
       guildId: team.guildId,
-      raid: "Geen raid data",
+      raid: zoneReportCandidates[0]?.zone?.name || "Geen raid data",
       difficulty: "Onbekend",
       killed: 0,
-      total: 0,
+      total: getEncounterCount(zoneReportCandidates),
       bestPercent: 100,
       latestKill: "Nog geen kill gevonden",
       lastUpdated: runAt,
     };
   }
 
-  const fights = zoneReports
+  const fights = raidZoneReports
     .flatMap((report) =>
       (report.fights || []).map((fight) => ({
         ...fight,
@@ -227,13 +255,13 @@ const summarizeTeam = async (token, team) => {
     return {
       name: team.name,
       guildId: team.guildId,
-      raid: zoneReports[0].zone.name,
+      raid: raidZoneReports[0].zone.name,
       difficulty: "Onbekend",
       killed: 0,
-      total: getEncounterCount(zoneReports),
+      total: getEncounterCount(raidZoneReports),
       bestPercent: 100,
       latestKill: "Nog geen kill gevonden",
-      lastUpdated: new Date(Math.max(...zoneReports.map((report) => report.endTime))).toISOString(),
+      lastUpdated: new Date(Math.max(...raidZoneReports.map((report) => report.endTime))).toISOString(),
     };
   }
 
@@ -270,10 +298,10 @@ const summarizeTeam = async (token, team) => {
     .filter((value) => typeof value === "number")
     .sort((a, b) => a - b)[0];
 
-  const raid = zoneReports[0].zone.name;
-  const zoneId = zoneReports[0].zone.id;
-  const total = getEncounterCount(zoneReports);
-  const lastUpdated = new Date(Math.max(...zoneReports.map((report) => report.endTime))).toISOString();
+  const raid = raidZoneReports[0].zone.name;
+  const zoneId = raidZoneReports[0].zone.id;
+  const total = getEncounterCount(raidZoneReports);
+  const lastUpdated = new Date(Math.max(...raidZoneReports.map((report) => report.endTime))).toISOString();
   const rankingData = await graphql(token, RANKING_QUERY, {
     guildId: team.guildId,
     zoneId,
