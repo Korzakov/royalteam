@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-09T00:05:42.404Z",
+  "generatedAt": "2026-05-09T04:25:57.170Z",
   "source": "warcraftlogs",
   "teams": [
     {
@@ -10,10 +10,10 @@
       "killed": null,
       "total": 9,
       "difficulty": null,
-      "progressText": "World #4433",
+      "progressText": "World #4435",
       "rankings": {
         "worldRank": {
-          "number": 4433,
+          "number": 4435,
           "percentile": null,
           "color": "uncommon"
         },
@@ -28,7 +28,7 @@
           "color": "epic"
         }
       },
-      "lastUpdated": "2026-05-09T00:05:41.551Z"
+      "lastUpdated": "2026-05-09T04:25:56.228Z"
     },
     {
       "name": "Templars",
@@ -38,10 +38,10 @@
       "killed": null,
       "total": 9,
       "difficulty": null,
-      "progressText": "World #4899",
+      "progressText": "World #4901",
       "rankings": {
         "worldRank": {
-          "number": 4899,
+          "number": 4901,
           "percentile": null,
           "color": "uncommon"
         },
@@ -56,7 +56,7 @@
           "color": "epic"
         }
       },
-      "lastUpdated": "2026-05-09T00:05:42.404Z"
+      "lastUpdated": "2026-05-09T04:25:57.170Z"
     }
   ]
 }
