@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-09T09:23:21.819Z",
+  "generatedAt": "2026-05-09T11:00:44.011Z",
   "source": "warcraftlogs",
   "teams": [
     {
@@ -28,7 +28,7 @@
           "color": "epic"
         }
       },
-      "lastUpdated": "2026-05-09T09:23:20.909Z"
+      "lastUpdated": "2026-05-09T11:00:43.282Z"
     },
     {
       "name": "Templars",
@@ -56,7 +56,7 @@
           "color": "epic"
         }
       },
-      "lastUpdated": "2026-05-09T09:23:21.819Z"
+      "lastUpdated": "2026-05-09T11:00:44.011Z"
     }
   ]
 }
