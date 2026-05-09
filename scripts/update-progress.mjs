@@ -12,13 +12,17 @@ const CONFIGURED_ZONE_ID = process.env.WCL_ZONE_ID ? Number(process.env.WCL_ZONE
 const RAID_SIZE = Number(process.env.WCL_RAID_SIZE || 20);
 const REPORT_LIMIT = Number(process.env.WCL_REPORT_LIMIT || 10);
 const FALLBACK_TOTAL = Number(process.env.WCL_BOSS_COUNT || 8);
-const DIFFICULTY_NAMES = {
+const FALLBACK_DIFFICULTY_NAMES = {
   1: "LFR",
   2: "Flex",
   3: "Normal",
   4: "Heroic",
   5: "Mythic",
-  6: "Challenge",
+  10: "Mythic",
+  14: "Normal",
+  15: "Heroic",
+  16: "Mythic",
+  17: "LFR",
 };
 
 const requireEnv = (name) => {
@@ -87,6 +91,11 @@ const LATEST_ZONE_QUERY = `
           id
           name
         }
+        difficulties {
+          id
+          name
+          sizes
+        }
       }
     }
   }
@@ -102,6 +111,11 @@ const ZONE_QUERY = `
         encounters {
           id
           name
+        }
+        difficulties {
+          id
+          name
+          sizes
         }
       }
     }
@@ -180,6 +194,13 @@ const isRaidZone = (zone) => {
 
 const difficultyValue = (difficulty) => (Number.isFinite(Number(difficulty)) ? Number(difficulty) : 0);
 
+const difficultyName = (zone, difficulty) => {
+  const id = difficultyValue(difficulty);
+  const zoneDifficulty = zone.difficulties?.find((item) => item.id === id);
+
+  return zoneDifficulty?.name || FALLBACK_DIFFICULTY_NAMES[id] || `Difficulty ${id}`;
+};
+
 const readCurrentProgress = async () => {
   try {
     return JSON.parse(await readFile("progress.json", "utf8"));
@@ -216,7 +237,7 @@ const resolveZone = async (token) => {
   return raidZones[0];
 };
 
-const summarizeReports = (reports, totalBosses) => {
+const summarizeReports = (reports, zone, totalBosses) => {
   const killsByDifficulty = new Map();
   const killedBossNames = new Map();
   let latestKill = null;
@@ -259,11 +280,11 @@ const summarizeReports = (reports, totalBosses) => {
     killed,
     total: totalBosses,
     difficulty: bestDifficulty,
-    difficultyName: bestDifficulty ? DIFFICULTY_NAMES[bestDifficulty] || `Difficulty ${bestDifficulty}` : null,
+    difficultyName: bestDifficulty ? difficultyName(zone, bestDifficulty) : null,
     latestKill: latestKill
       ? {
           name: latestKill.name,
-          difficulty: DIFFICULTY_NAMES[latestKill.difficulty] || `Difficulty ${latestKill.difficulty}`,
+          difficulty: difficultyName(zone, latestKill.difficulty),
           reportCode: latestKill.reportCode,
           endTime: new Date(latestKill.endTime).toISOString(),
         }
@@ -314,7 +335,7 @@ const summarizeTeam = async (token, team, zone, currentProgress) => {
   const reports = data.reportData.reports.data || [];
   const rankings = data.guildData.guild.zoneRanking.progress;
   const total = zone.encounters?.length || FALLBACK_TOTAL;
-  const reportProgress = summarizeReports(reports, total);
+  const reportProgress = summarizeReports(reports, zone, total);
   const nextTeam = {
     name: team.name,
     guildId: team.guildId,
