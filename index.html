@@ -219,24 +219,6 @@
       font-size: 0.9rem;
     }
 
-    .rank-list {
-      display: grid;
-      gap: 6px;
-      margin-top: 12px;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .rank-list div {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .rank-list strong {
-      color: var(--text);
-    }
-
     .links {
       margin-top: 18px;
     }
@@ -465,24 +447,12 @@
         timeStyle: "short"
       }).format(new Date(value));
 
-    const formatRank = (rank, label) =>
-      rank?.number ? `<div><span>${label}</span><strong>#${rank.number}</strong></div>` : "";
-
     const renderProgress = (data) => {
       progressTeams.innerHTML = data.teams
         .map((team) => {
           const hasKillProgress = Number.isFinite(team.killed) && Number.isFinite(team.total) && team.total > 0;
           const progress = hasKillProgress ? Math.round((team.killed / team.total) * 100) : 0;
-          const difficultyLabel = team.difficultyName || (typeof team.difficulty === "string" ? team.difficulty : "");
           const score = hasKillProgress ? team.progressText || `${team.killed}/${team.total}` : team.progressText || "WCL";
-          const progressMeta = hasKillProgress
-            ? `${difficultyLabel ? `${difficultyLabel} - ` : ""}${progress}% voltooid`
-            : "GuildZoneRankings progress";
-          const ranks = [
-            formatRank(team.rankings?.worldRank, "World"),
-            formatRank(team.rankings?.regionRank, "EU"),
-            formatRank(team.rankings?.serverRank, "Silvermoon")
-          ].join("");
 
           return `
             <article class="progress-card">
@@ -500,10 +470,6 @@
                     </div>`
                   : ""
               }
-              <div class="progress-meta">
-                ${progressMeta}
-              </div>
-              ${ranks ? `<div class="rank-list">${ranks}</div>` : ""}
             </article>
           `;
         })
