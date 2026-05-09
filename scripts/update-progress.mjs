@@ -10,9 +10,16 @@ const TEAMS = [
 
 const CONFIGURED_ZONE_ID = process.env.WCL_ZONE_ID ? Number(process.env.WCL_ZONE_ID) : null;
 const RAID_SIZE = Number(process.env.WCL_RAID_SIZE || 20);
-const RAID_DIFFICULTY = process.env.WCL_RAID_DIFFICULTY ? Number(process.env.WCL_RAID_DIFFICULTY) : null;
+const REPORT_LIMIT = Number(process.env.WCL_REPORT_LIMIT || 10);
 const FALLBACK_TOTAL = Number(process.env.WCL_BOSS_COUNT || 8);
-const DEFAULT_RAID_DIFFICULTIES = [5, 4, 6, 3];
+const DIFFICULTY_NAMES = {
+  1: "LFR",
+  2: "Flex",
+  3: "Normal",
+  4: "Heroic",
+  5: "Mythic",
+  6: "Challenge",
+};
 
 const requireEnv = (name) => {
   const value = process.env[name];
@@ -101,8 +108,28 @@ const ZONE_QUERY = `
   }
 `;
 
-const RANKING_QUERY = `
-  query TeamRanking($guildId: Int!, $zoneId: Int!, $size: Int!) {
+const TEAM_PROGRESS_QUERY = `
+  query TeamProgressFromReports($guildId: Int!, $zoneId: Int!, $limit: Int!, $size: Int!) {
+    reportData {
+      reports(guildID: $guildId, zoneID: $zoneId, limit: $limit) {
+        data {
+          code
+          title
+          startTime
+          endTime
+          fights(killType: Kills) {
+            id
+            encounterID
+            name
+            difficulty
+            size
+            kill
+            startTime
+            endTime
+          }
+        }
+      }
+    }
     guildData {
       guild(id: $guildId) {
         id
@@ -131,169 +158,18 @@ const RANKING_QUERY = `
   }
 `;
 
-const PROGRESS_RACE_QUERY = `
-  query TeamProgressRace($guildId: Int!, $zoneId: Int!, $size: Int!, $difficulty: Int) {
-    progressRaceData {
-      progressRace(zoneID: $zoneId, difficulty: $difficulty, size: $size, guildID: $guildId)
-    }
-  }
-`;
-
 const isObject = (value) => value && typeof value === "object" && !Array.isArray(value);
 
-const getNumber = (...values) => {
-  for (const value of values) {
-    if (Number.isFinite(value)) {
-      return value;
-    }
-
-    if (typeof value === "string" && value.trim() && Number.isFinite(Number(value))) {
-      return Number(value);
-    }
+const formatProgressText = (killed, total, difficultyName, rankings) => {
+  if (Number.isFinite(killed) && Number.isFinite(total) && difficultyName) {
+    return `${killed}/${total} ${difficultyName}`;
   }
 
-  return null;
+  const world = rankings?.worldRank?.number ? `World #${rankings.worldRank.number}` : null;
+  const region = rankings?.regionRank?.number ? `EU #${rankings.regionRank.number}` : null;
+
+  return world || region || "Progress niet gevonden";
 };
-
-const findProgressString = (value) => {
-  if (typeof value === "string") {
-    const match = value.match(/\b(\d+)\s*\/\s*(\d+)\b/);
-    return match ? { killed: Number(match[1]), total: Number(match[2]), text: match[0] } : null;
-  }
-
-  if (Array.isArray(value)) {
-    for (const item of value) {
-      const found = findProgressString(item);
-      if (found) {
-        return found;
-      }
-    }
-  }
-
-  if (isObject(value)) {
-    for (const item of Object.values(value)) {
-      const found = findProgressString(item);
-      if (found) {
-        return found;
-      }
-    }
-  }
-
-  return null;
-};
-
-const looksLikeEncounter = (item) =>
-  isObject(item) &&
-  ("slug" in item || "encounterID" in item || "encounterId" in item || "encounter" in item || "firstDefeated" in item);
-
-const defeatedFromEncounterArray = (items) => {
-  if (!items.length || !items.every(looksLikeEncounter)) {
-    return null;
-  }
-
-  const killed = items.filter((item) =>
-    item.isDefeated === true ||
-    item.defeated === true ||
-    item.killed === true ||
-    item.firstDefeated ||
-    item.killTime ||
-    item.killTimestamp
-  ).length;
-
-  return { killed, total: items.length };
-};
-
-const findEncounterProgress = (value) => {
-  if (Array.isArray(value)) {
-    const direct = defeatedFromEncounterArray(value);
-    if (direct) {
-      return direct;
-    }
-
-    for (const item of value) {
-      const found = findEncounterProgress(item);
-      if (found) {
-        return found;
-      }
-    }
-  }
-
-  if (isObject(value)) {
-    for (const [key, item] of Object.entries(value)) {
-      if (/encountersDefeated|defeatedEncounters|bossesKilled/i.test(key) && Array.isArray(item)) {
-        return { killed: item.length, total: null };
-      }
-
-      const found = findEncounterProgress(item);
-      if (found) {
-        return found;
-      }
-    }
-  }
-
-  return null;
-};
-
-const findNumericProgress = (value) => {
-  if (!isObject(value)) {
-    return null;
-  }
-
-  const killed = getNumber(
-    value.killed,
-    value.defeated,
-    value.bossesKilled,
-    value.bosses_killed,
-    value.numBossesKilled,
-    value.encountersDefeated,
-    value.encounters_defeated
-  );
-  const total = getNumber(value.total, value.totalBosses, value.total_bosses, value.numBosses, value.encounterCount);
-
-  if (killed !== null || total !== null) {
-    return { killed, total };
-  }
-
-  for (const item of Object.values(value)) {
-    const found = findNumericProgress(item);
-    if (found) {
-      return found;
-    }
-  }
-
-  return null;
-};
-
-const parseProgressRace = (progressRace, fallbackTotal) => {
-  const progressString = findProgressString(progressRace);
-  if (progressString) {
-    return progressString;
-  }
-
-  const numeric = findNumericProgress(progressRace);
-  if (numeric?.killed !== null) {
-    return {
-      killed: numeric.killed,
-      total: numeric.total || fallbackTotal,
-      text: `${numeric.killed}/${numeric.total || fallbackTotal}`,
-    };
-  }
-
-  const encounterProgress = findEncounterProgress(progressRace);
-  if (encounterProgress) {
-    const total = encounterProgress.total || fallbackTotal;
-
-    return {
-      killed: encounterProgress.killed,
-      total,
-      text: `${encounterProgress.killed}/${total}`,
-    };
-  }
-
-  return null;
-};
-
-const formatRank = (rank) => (rank?.number ? `World #${rank.number}` : "Progress niet gevonden");
 
 const isRaidZone = (zone) => {
   const name = zone.name || "";
@@ -302,13 +178,18 @@ const isRaidZone = (zone) => {
   return encounterCount >= 6 && !/mythic\+|season|dungeon|challenge/i.test(name);
 };
 
-const getDifficultyCandidates = () => {
-  if (RAID_DIFFICULTY) {
-    return [RAID_DIFFICULTY];
-  }
+const difficultyValue = (difficulty) => (Number.isFinite(Number(difficulty)) ? Number(difficulty) : 0);
 
-  return DEFAULT_RAID_DIFFICULTIES;
+const readCurrentProgress = async () => {
+  try {
+    return JSON.parse(await readFile("progress.json", "utf8"));
+  } catch {
+    return null;
+  }
 };
+
+const getCurrentTeam = (currentProgress, teamName, zoneId) =>
+  currentProgress?.teams?.find((team) => team.name === teamName && team.zoneId === zoneId) || null;
 
 const resolveZone = async (token) => {
   if (CONFIGURED_ZONE_ID) {
@@ -335,55 +216,123 @@ const resolveZone = async (token) => {
   return raidZones[0];
 };
 
-const getProgressRace = async (token, team, zone) => {
-  for (const difficulty of getDifficultyCandidates()) {
-    try {
-      const data = await graphql(token, PROGRESS_RACE_QUERY, {
-        guildId: team.guildId,
-        zoneId: zone.id,
-        size: RAID_SIZE,
-        difficulty,
-      });
-      const progress = parseProgressRace(data.progressRaceData.progressRace, zone.encounters?.length || FALLBACK_TOTAL);
+const summarizeReports = (reports, totalBosses) => {
+  const killsByDifficulty = new Map();
+  const killedBossNames = new Map();
+  let latestKill = null;
 
-      if (progress) {
-        return { ...progress, difficulty };
+  for (const report of reports) {
+    for (const fight of report.fights || []) {
+      if (!fight.kill || !fight.encounterID || !fight.difficulty) {
+        continue;
       }
-    } catch (error) {
-      console.warn(
-        `Could not fetch progressRace for ${team.name} in zone ${zone.id} difficulty ${difficulty}: ${error.message}`
-      );
+
+      const difficulty = difficultyValue(fight.difficulty);
+      const difficultyKills = killsByDifficulty.get(difficulty) || new Set();
+      difficultyKills.add(fight.encounterID);
+      killsByDifficulty.set(difficulty, difficultyKills);
+
+      const existing = killedBossNames.get(fight.encounterID);
+      if (!existing || report.endTime > existing.endTime) {
+        killedBossNames.set(fight.encounterID, {
+          name: fight.name,
+          endTime: report.endTime,
+          reportCode: report.code,
+        });
+      }
+
+      if (!latestKill || report.endTime > latestKill.endTime) {
+        latestKill = {
+          name: fight.name,
+          difficulty,
+          endTime: report.endTime,
+          reportCode: report.code,
+        };
+      }
     }
   }
 
-  return null;
+  const bestDifficulty = [...killsByDifficulty.keys()].sort((a, b) => b - a)[0] || null;
+  const killed = bestDifficulty ? killsByDifficulty.get(bestDifficulty).size : 0;
+
+  return {
+    killed,
+    total: totalBosses,
+    difficulty: bestDifficulty,
+    difficultyName: bestDifficulty ? DIFFICULTY_NAMES[bestDifficulty] || `Difficulty ${bestDifficulty}` : null,
+    latestKill: latestKill
+      ? {
+          name: latestKill.name,
+          difficulty: DIFFICULTY_NAMES[latestKill.difficulty] || `Difficulty ${latestKill.difficulty}`,
+          reportCode: latestKill.reportCode,
+          endTime: new Date(latestKill.endTime).toISOString(),
+        }
+      : null,
+    killedBosses: [...(bestDifficulty ? killsByDifficulty.get(bestDifficulty) : [])].map((encounterId) => ({
+      id: encounterId,
+      name: killedBossNames.get(encounterId)?.name || `Encounter ${encounterId}`,
+    })),
+  };
 };
 
-const summarizeTeam = async (token, team, zone) => {
-  const data = await graphql(token, RANKING_QUERY, {
+const keepBestProgress = (nextTeam, currentTeam) => {
+  if (!currentTeam || currentTeam.zoneId !== nextTeam.zoneId || !Number.isFinite(currentTeam.killed)) {
+    return nextTeam;
+  }
+
+  const currentDifficulty = difficultyValue(currentTeam.difficulty);
+  const nextDifficulty = difficultyValue(nextTeam.difficulty);
+  const currentKilled = Number(currentTeam.killed);
+  const nextKilled = Number(nextTeam.killed);
+
+  if (currentDifficulty > nextDifficulty || (currentDifficulty === nextDifficulty && currentKilled > nextKilled)) {
+    return {
+      ...nextTeam,
+      killed: currentKilled,
+      difficulty: currentTeam.difficulty ?? nextTeam.difficulty,
+      difficultyName: currentTeam.difficultyName ?? nextTeam.difficultyName,
+      progressText:
+        currentTeam.progressText ||
+        formatProgressText(currentKilled, nextTeam.total, currentTeam.difficultyName ?? nextTeam.difficultyName, nextTeam.rankings),
+      latestKill: currentTeam.latestKill ?? nextTeam.latestKill,
+      killedBosses: currentTeam.killedBosses ?? nextTeam.killedBosses,
+      preservedFromPrevious: true,
+    };
+  }
+
+  return nextTeam;
+};
+
+const summarizeTeam = async (token, team, zone, currentProgress) => {
+  const data = await graphql(token, TEAM_PROGRESS_QUERY, {
     guildId: team.guildId,
     zoneId: zone.id,
+    limit: REPORT_LIMIT,
     size: RAID_SIZE,
   });
 
+  const reports = data.reportData.reports.data || [];
   const rankings = data.guildData.guild.zoneRanking.progress;
   const total = zone.encounters?.length || FALLBACK_TOTAL;
-  const parsedProgress = await getProgressRace(token, team, zone);
-  const killed = parsedProgress?.killed ?? null;
-  const progressTotal = parsedProgress?.total || total;
-
-  return {
+  const reportProgress = summarizeReports(reports, total);
+  const nextTeam = {
     name: team.name,
     guildId: team.guildId,
     zoneId: zone.id,
     raid: zone.name,
-    killed,
-    total: progressTotal,
-    difficulty: parsedProgress?.difficulty || RAID_DIFFICULTY,
-    progressText: parsedProgress?.text || formatRank(rankings?.worldRank),
+    killed: reportProgress.killed,
+    total: reportProgress.total,
+    difficulty: reportProgress.difficulty,
+    difficultyName: reportProgress.difficultyName,
+    progressText: formatProgressText(reportProgress.killed, reportProgress.total, reportProgress.difficultyName, rankings),
     rankings,
+    latestKill: reportProgress.latestKill,
+    killedBosses: reportProgress.killedBosses,
+    reportsScanned: reports.length,
     lastUpdated: new Date().toISOString(),
   };
+
+  return keepBestProgress(nextTeam, getCurrentTeam(currentProgress, team.name, zone.id));
 };
 
 const sortKeys = (value) => {
@@ -405,29 +354,30 @@ const sortKeys = (value) => {
 
 const main = async () => {
   const token = await getAccessToken();
+  const currentProgress = await readCurrentProgress();
   const zone = await resolveZone(token);
   const teams = [];
 
   console.log(`Using WCL zone ${zone.id}: ${zone.name}`);
 
   for (const team of TEAMS) {
-    teams.push(await summarizeTeam(token, team, zone));
+    teams.push(await summarizeTeam(token, team, zone, currentProgress));
   }
 
   const progress = {
     generatedAt: new Date().toISOString(),
     source: "warcraftlogs",
+    strategy: `last-${REPORT_LIMIT}-reports`,
     teams,
   };
 
   const next = `${JSON.stringify(progress, null, 2)}\n`;
 
   try {
-    const current = await readFile("progress.json", "utf8");
-    const { generatedAt: _currentGeneratedAt, ...currentProgress } = JSON.parse(current);
-    const { generatedAt: _nextGeneratedAt, ...nextProgress } = progress;
-    const currentComparable = sortKeys(currentProgress);
-    const nextComparable = sortKeys(nextProgress);
+    const { generatedAt: _currentGeneratedAt, ...currentComparableSource } = currentProgress || {};
+    const { generatedAt: _nextGeneratedAt, ...nextComparableSource } = progress;
+    const currentComparable = sortKeys(currentComparableSource);
+    const nextComparable = sortKeys(nextComparableSource);
 
     if (JSON.stringify(currentComparable) === JSON.stringify(nextComparable)) {
       console.log("progress.json is already up to date");
