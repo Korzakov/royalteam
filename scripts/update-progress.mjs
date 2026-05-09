@@ -24,6 +24,13 @@ const FALLBACK_DIFFICULTY_NAMES = {
   16: "Mythic",
   17: "LFR",
 };
+const DIFFICULTY_ABBREVIATIONS = {
+  "Looking For Raid": "LFR",
+  LFR: "LFR",
+  Normal: "N",
+  Heroic: "H",
+  Mythic: "M",
+};
 
 const requireEnv = (name) => {
   const value = process.env[name];
@@ -176,7 +183,7 @@ const isObject = (value) => value && typeof value === "object" && !Array.isArray
 
 const formatProgressText = (killed, total, difficultyName, rankings) => {
   if (Number.isFinite(killed) && Number.isFinite(total) && difficultyName) {
-    return `${killed}/${total} ${difficultyName}`;
+    return `${killed}/${total} ${DIFFICULTY_ABBREVIATIONS[difficultyName] || difficultyName}`;
   }
 
   const world = rankings?.worldRank?.number ? `World #${rankings.worldRank.number}` : null;
@@ -312,6 +319,7 @@ const keepBestProgress = (nextTeam, currentTeam) => {
       killed: currentKilled,
       difficulty: currentTeam.difficulty ?? nextTeam.difficulty,
       difficultyName: currentTeam.difficultyName ?? nextTeam.difficultyName,
+      difficultyShort: currentTeam.difficultyShort ?? nextTeam.difficultyShort,
       progressText:
         currentTeam.progressText ||
         formatProgressText(currentKilled, nextTeam.total, currentTeam.difficultyName ?? nextTeam.difficultyName, nextTeam.rankings),
@@ -345,6 +353,7 @@ const summarizeTeam = async (token, team, zone, currentProgress) => {
     total: reportProgress.total,
     difficulty: reportProgress.difficulty,
     difficultyName: reportProgress.difficultyName,
+    difficultyShort: DIFFICULTY_ABBREVIATIONS[reportProgress.difficultyName] || reportProgress.difficultyName,
     progressText: formatProgressText(reportProgress.killed, reportProgress.total, reportProgress.difficultyName, rankings),
     rankings,
     latestKill: reportProgress.latestKill,
