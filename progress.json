@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-09T17:45:47.695Z",
+  "generatedAt": "2026-05-09T17:51:41.071Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -12,7 +12,8 @@
       "total": 9,
       "difficulty": 10,
       "difficultyName": "Mythic",
-      "progressText": "2/9 Mythic",
+      "difficultyShort": "M",
+      "progressText": "2/9 M",
       "rankings": {
         "worldRank": {
           "number": 4444,
@@ -47,7 +48,7 @@
         }
       ],
       "reportsScanned": 10,
-      "lastUpdated": "2026-05-09T17:45:47.484Z"
+      "lastUpdated": "2026-05-09T17:51:40.919Z"
     },
     {
       "name": "Templars",
@@ -58,7 +59,8 @@
       "total": 9,
       "difficulty": 10,
       "difficultyName": "Mythic",
-      "progressText": "1/9 Mythic",
+      "difficultyShort": "M",
+      "progressText": "1/9 M",
       "rankings": {
         "worldRank": {
           "number": 4907,
@@ -89,7 +91,7 @@
         }
       ],
       "reportsScanned": 10,
-      "lastUpdated": "2026-05-09T17:45:47.695Z"
+      "lastUpdated": "2026-05-09T17:51:41.071Z"
     }
   ]
 }
