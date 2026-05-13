@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-13T18:58:31.361Z",
+  "generatedAt": "2026-05-13T20:50:50.951Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -16,26 +16,26 @@
       "progressText": "2/9 M",
       "rankings": {
         "worldRank": {
-          "number": 4584,
+          "number": 4600,
           "percentile": null,
           "color": "uncommon"
         },
         "regionRank": {
-          "number": 2102,
+          "number": 2118,
           "percentile": null,
           "color": "uncommon"
         },
         "serverRank": {
-          "number": 110,
+          "number": 112,
           "percentile": null,
           "color": "epic"
         }
       },
       "latestKill": {
-        "name": "Belo'ren, Child of Al'ar",
-        "difficulty": "Heroic",
-        "reportCode": "xTJaLDYr8VCHKd6q",
-        "endTime": "2026-05-11T20:08:10.017Z"
+        "name": "Chimaerus, the Undreamt God",
+        "difficulty": "Mythic",
+        "reportCode": "RLjTF1KngtPZhbBm",
+        "endTime": "2026-05-13T20:50:14.922Z"
       },
       "killedBosses": [
         {
@@ -48,7 +48,7 @@
         }
       ],
       "reportsScanned": 10,
-      "lastUpdated": "2026-05-13T18:58:27.429Z"
+      "lastUpdated": "2026-05-13T20:50:47.433Z"
     },
     {
       "name": "Templars",
@@ -91,7 +91,7 @@
         }
       ],
       "reportsScanned": 10,
-      "lastUpdated": "2026-05-13T18:58:31.361Z"
+      "lastUpdated": "2026-05-13T20:50:50.951Z"
     }
   ]
 }
