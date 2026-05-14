@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-14T20:28:17.990Z",
+  "generatedAt": "2026-05-14T22:14:06.707Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -16,17 +16,17 @@
       "progressText": "2/9 M",
       "rankings": {
         "worldRank": {
-          "number": 4659,
+          "number": 4667,
           "percentile": null,
           "color": "uncommon"
         },
         "regionRank": {
-          "number": 2128,
+          "number": 2134,
           "percentile": null,
           "color": "uncommon"
         },
         "serverRank": {
-          "number": 113,
+          "number": 114,
           "percentile": null,
           "color": "epic"
         }
@@ -48,7 +48,7 @@
         }
       ],
       "reportsScanned": 10,
-      "lastUpdated": "2026-05-14T20:28:14.246Z"
+      "lastUpdated": "2026-05-14T22:14:02.954Z"
     },
     {
       "name": "Templars",
@@ -82,7 +82,7 @@
         "name": "Chimaerus, the Undreamt God",
         "difficulty": "Mythic",
         "reportCode": "kX2qjRLFnx8va6BD",
-        "endTime": "2026-05-14T20:27:41.727Z"
+        "endTime": "2026-05-14T20:59:38.348Z"
       },
       "killedBosses": [
         {
@@ -91,7 +91,7 @@
         }
       ],
       "reportsScanned": 10,
-      "lastUpdated": "2026-05-14T20:28:17.990Z"
+      "lastUpdated": "2026-05-14T22:14:06.707Z"
     }
   ]
 }
