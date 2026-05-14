@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-14T18:01:41.756Z",
+  "generatedAt": "2026-05-14T20:28:17.990Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -16,7 +16,7 @@
       "progressText": "2/9 M",
       "rankings": {
         "worldRank": {
-          "number": 4658,
+          "number": 4659,
           "percentile": null,
           "color": "uncommon"
         },
@@ -48,7 +48,7 @@
         }
       ],
       "reportsScanned": 10,
-      "lastUpdated": "2026-05-14T18:01:38.060Z"
+      "lastUpdated": "2026-05-14T20:28:14.246Z"
     },
     {
       "name": "Templars",
@@ -63,7 +63,7 @@
       "progressText": "1/9 M",
       "rankings": {
         "worldRank": {
-          "number": 4237,
+          "number": 4238,
           "percentile": null,
           "color": "uncommon"
         },
@@ -79,10 +79,10 @@
         }
       },
       "latestKill": {
-        "name": "Fallen-King Salhadaar",
+        "name": "Chimaerus, the Undreamt God",
         "difficulty": "Mythic",
-        "reportCode": "xJ9C1ht3BYZcvwbV",
-        "endTime": "2026-05-10T21:08:23.903Z"
+        "reportCode": "kX2qjRLFnx8va6BD",
+        "endTime": "2026-05-14T20:27:41.727Z"
       },
       "killedBosses": [
         {
@@ -91,7 +91,7 @@
         }
       ],
       "reportsScanned": 10,
-      "lastUpdated": "2026-05-14T18:01:41.756Z"
+      "lastUpdated": "2026-05-14T20:28:17.990Z"
     }
   ]
 }
