@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-17T20:06:06.022Z",
+  "generatedAt": "2026-05-17T21:58:51.763Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -48,7 +48,7 @@
         }
       ],
       "reportsScanned": 10,
-      "lastUpdated": "2026-05-17T20:05:44.930Z"
+      "lastUpdated": "2026-05-17T21:58:46.244Z"
     },
     {
       "name": "Templars",
@@ -82,7 +82,7 @@
         "name": "Fallen-King Salhadaar",
         "difficulty": "Mythic",
         "reportCode": "tzmQayfg2pZn1rkJ",
-        "endTime": "2026-05-17T20:02:16.727Z"
+        "endTime": "2026-05-17T20:46:33.499Z"
       },
       "killedBosses": [
         {
@@ -91,7 +91,7 @@
         }
       ],
       "reportsScanned": 10,
-      "lastUpdated": "2026-05-17T20:06:06.022Z"
+      "lastUpdated": "2026-05-17T21:58:51.763Z"
     }
   ]
 }
