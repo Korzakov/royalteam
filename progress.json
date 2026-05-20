@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-20T19:28:59.398Z",
+  "generatedAt": "2026-05-20T22:00:02.186Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -35,7 +35,7 @@
         "name": "Chimaerus, the Undreamt God",
         "difficulty": "Mythic",
         "reportCode": "d7WzC3xAyfg1qVGj",
-        "endTime": "2026-05-20T19:25:24.633Z"
+        "endTime": "2026-05-20T20:58:08.845Z"
       },
       "killedBosses": [
         {
@@ -48,7 +48,7 @@
         }
       ],
       "reportsScanned": 10,
-      "lastUpdated": "2026-05-20T19:28:53.086Z"
+      "lastUpdated": "2026-05-20T21:59:58.989Z"
     },
     {
       "name": "Templars",
@@ -63,19 +63,19 @@
       "progressText": "1/9 M",
       "rankings": {
         "worldRank": {
-          "number": 4280,
+          "number": 4288,
           "percentile": null,
           "color": "uncommon"
         },
         "regionRank": {
-          "number": 1978,
+          "number": 1985,
           "percentile": null,
           "color": "uncommon"
         },
         "serverRank": {
-          "number": 99,
+          "number": 101,
           "percentile": null,
-          "color": "legendary"
+          "color": "epic"
         }
       },
       "latestKill": {
@@ -91,7 +91,7 @@
         }
       ],
       "reportsScanned": 10,
-      "lastUpdated": "2026-05-20T19:28:59.398Z"
+      "lastUpdated": "2026-05-20T22:00:02.186Z"
     }
   ]
 }
