@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-25T19:46:42.619Z",
+  "generatedAt": "2026-05-25T21:13:59.048Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -16,12 +16,12 @@
       "progressText": "2/9 M",
       "rankings": {
         "worldRank": {
-          "number": 4788,
+          "number": 4796,
           "percentile": null,
           "color": "uncommon"
         },
         "regionRank": {
-          "number": 2189,
+          "number": 2192,
           "percentile": null,
           "color": "uncommon"
         },
@@ -35,7 +35,7 @@
         "name": "Belo'ren, Child of Al'ar",
         "difficulty": "Heroic",
         "reportCode": "Cz3cnTh9bYgK1f2a",
-        "endTime": "2026-05-25T19:41:35.403Z"
+        "endTime": "2026-05-25T20:05:01.366Z"
       },
       "killedBosses": [
         {
@@ -48,7 +48,7 @@
         }
       ],
       "reportsScanned": 10,
-      "lastUpdated": "2026-05-25T19:46:39.097Z"
+      "lastUpdated": "2026-05-25T21:13:54.834Z"
     },
     {
       "name": "Templars",
@@ -63,17 +63,17 @@
       "progressText": "1/9 M",
       "rankings": {
         "worldRank": {
-          "number": 4372,
+          "number": 4403,
           "percentile": null,
           "color": "uncommon"
         },
         "regionRank": {
-          "number": 2011,
+          "number": 2025,
           "percentile": null,
           "color": "uncommon"
         },
         "serverRank": {
-          "number": 102,
+          "number": 105,
           "percentile": null,
           "color": "epic"
         }
@@ -91,7 +91,7 @@
         }
       ],
       "reportsScanned": 10,
-      "lastUpdated": "2026-05-25T19:46:42.619Z"
+      "lastUpdated": "2026-05-25T21:13:59.048Z"
     }
   ]
 }
