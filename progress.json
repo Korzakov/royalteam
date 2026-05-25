@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-25T17:46:58.906Z",
+  "generatedAt": "2026-05-25T19:46:42.619Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -32,10 +32,10 @@
         }
       },
       "latestKill": {
-        "name": "Chimaerus, the Undreamt God",
-        "difficulty": "Mythic",
-        "reportCode": "d7WzC3xAyfg1qVGj",
-        "endTime": "2026-05-20T20:58:08.845Z"
+        "name": "Belo'ren, Child of Al'ar",
+        "difficulty": "Heroic",
+        "reportCode": "Cz3cnTh9bYgK1f2a",
+        "endTime": "2026-05-25T19:41:35.403Z"
       },
       "killedBosses": [
         {
@@ -48,7 +48,7 @@
         }
       ],
       "reportsScanned": 10,
-      "lastUpdated": "2026-05-25T17:46:55.773Z"
+      "lastUpdated": "2026-05-25T19:46:39.097Z"
     },
     {
       "name": "Templars",
@@ -91,7 +91,7 @@
         }
       ],
       "reportsScanned": 10,
-      "lastUpdated": "2026-05-25T17:46:58.906Z"
+      "lastUpdated": "2026-05-25T19:46:42.619Z"
     }
   ]
 }
