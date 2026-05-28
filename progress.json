@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-28T18:14:22.031Z",
+  "generatedAt": "2026-05-28T21:10:44.875Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -48,7 +48,7 @@
         }
       ],
       "reportsScanned": 10,
-      "lastUpdated": "2026-05-28T18:14:17.127Z",
+      "lastUpdated": "2026-05-28T21:10:40.181Z",
       "preservedFromPrevious": true
     },
     {
@@ -80,10 +80,10 @@
         }
       },
       "latestKill": {
-        "name": "Fallen-King Salhadaar",
+        "name": "Chimaerus, the Undreamt God",
         "difficulty": "Mythic",
-        "reportCode": "D6t3X4ZTa1cFYQvx",
-        "endTime": "2026-05-24T20:47:13.286Z"
+        "reportCode": "cf2MWbwth3x6mDdp",
+        "endTime": "2026-05-28T21:00:41.055Z"
       },
       "killedBosses": [
         {
@@ -92,7 +92,7 @@
         }
       ],
       "reportsScanned": 10,
-      "lastUpdated": "2026-05-28T18:14:22.031Z"
+      "lastUpdated": "2026-05-28T21:10:44.875Z"
     }
   ]
 }
