@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-01T16:40:47.249Z",
+  "generatedAt": "2026-06-01T20:57:20.865Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -16,17 +16,17 @@
       "progressText": "2/9 M",
       "rankings": {
         "worldRank": {
-          "number": 4868,
+          "number": 4297,
           "percentile": null,
           "color": "uncommon"
         },
         "regionRank": {
-          "number": 2210,
+          "number": 1959,
           "percentile": null,
           "color": "uncommon"
         },
         "serverRank": {
-          "number": 121,
+          "number": 103,
           "percentile": null,
           "color": "epic"
         }
@@ -48,7 +48,7 @@
         }
       ],
       "reportsScanned": 10,
-      "lastUpdated": "2026-06-01T16:40:44.365Z",
+      "lastUpdated": "2026-06-01T20:57:16.611Z",
       "preservedFromPrevious": true
     },
     {
@@ -64,17 +64,17 @@
       "progressText": "1/9 M",
       "rankings": {
         "worldRank": {
-          "number": 4565,
+          "number": 4597,
           "percentile": null,
           "color": "uncommon"
         },
         "regionRank": {
-          "number": 2083,
+          "number": 2098,
           "percentile": null,
           "color": "uncommon"
         },
         "serverRank": {
-          "number": 108,
+          "number": 112,
           "percentile": null,
           "color": "epic"
         }
@@ -92,7 +92,7 @@
         }
       ],
       "reportsScanned": 10,
-      "lastUpdated": "2026-06-01T16:40:47.249Z",
+      "lastUpdated": "2026-06-01T20:57:20.865Z",
       "preservedFromPrevious": true
     }
   ]
