@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-05T05:21:34.553Z",
+  "generatedAt": "2026-06-05T09:58:33.669Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -16,7 +16,7 @@
       "progressText": "2/9 M",
       "rankings": {
         "worldRank": {
-          "number": 4306,
+          "number": 4307,
           "percentile": null,
           "color": "uncommon"
         },
@@ -48,7 +48,7 @@
         }
       ],
       "reportsScanned": 10,
-      "lastUpdated": "2026-06-05T05:21:31.179Z",
+      "lastUpdated": "2026-06-05T09:58:31.143Z",
       "preservedFromPrevious": true
     },
     {
@@ -92,7 +92,7 @@
         }
       ],
       "reportsScanned": 10,
-      "lastUpdated": "2026-06-05T05:21:34.553Z",
+      "lastUpdated": "2026-06-05T09:58:33.669Z",
       "preservedFromPrevious": true
     }
   ]
