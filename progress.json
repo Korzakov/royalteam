@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-28T11:20:40.748Z",
+  "generatedAt": "2026-07-28T14:15:05.307Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -48,7 +48,7 @@
         }
       ],
       "reportsScanned": 10,
-      "lastUpdated": "2026-07-28T11:20:38.211Z",
+      "lastUpdated": "2026-07-28T14:15:02.889Z",
       "preservedFromPrevious": true
     },
     {
@@ -92,7 +92,7 @@
         }
       ],
       "reportsScanned": 10,
-      "lastUpdated": "2026-07-28T11:20:40.748Z",
+      "lastUpdated": "2026-07-28T14:15:05.307Z",
       "preservedFromPrevious": true
     }
   ]
