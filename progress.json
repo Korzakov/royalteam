@@ -1,99 +1,41 @@
 {
-  "generatedAt": "2026-08-17T19:30:04.890Z",
+  "generatedAt": "2026-08-17T20:29:59.006Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
     {
       "name": "Crusaders",
       "guildId": 744461,
-      "zoneId": 46,
-      "raid": "VS / DR / MQD",
-      "killed": 2,
+      "zoneId": 53,
+      "raid": "The Venomous Abyss",
+      "killed": 0,
       "total": 9,
-      "difficulty": 10,
-      "difficultyName": "Mythic",
-      "difficultyShort": "M",
-      "progressText": "2/9 M",
-      "rankings": {
-        "worldRank": {
-          "number": 4040,
-          "percentile": null,
-          "color": "uncommon"
-        },
-        "regionRank": {
-          "number": 1775,
-          "percentile": null,
-          "color": "uncommon"
-        },
-        "serverRank": {
-          "number": 90,
-          "percentile": null,
-          "color": "legendary"
-        }
-      },
-      "latestKill": {
-        "name": "Belo'ren, Child of Al'ar",
-        "difficulty": "Heroic",
-        "reportCode": "Cz3cnTh9bYgK1f2a",
-        "endTime": "2026-05-25T20:05:01.366Z"
-      },
-      "killedBosses": [
-        {
-          "id": 12805,
-          "name": "Windrunner Spire"
-        },
-        {
-          "id": 10658,
-          "name": "Pit of Saron"
-        }
-      ],
-      "reportsScanned": 10,
-      "lastUpdated": "2026-08-17T19:30:04.660Z",
-      "preservedFromPrevious": true
+      "difficulty": null,
+      "difficultyName": null,
+      "difficultyShort": null,
+      "progressText": "Progress niet gevonden",
+      "rankings": null,
+      "latestKill": null,
+      "killedBosses": [],
+      "reportsScanned": 0,
+      "lastUpdated": "2026-08-17T20:29:58.869Z"
     },
     {
       "name": "Templars",
       "guildId": 816789,
-      "zoneId": 46,
-      "raid": "VS / DR / MQD",
-      "killed": 1,
+      "zoneId": 53,
+      "raid": "The Venomous Abyss",
+      "killed": 0,
       "total": 9,
-      "difficulty": 10,
-      "difficultyName": "Mythic",
-      "difficultyShort": "M",
-      "progressText": "1/9 M",
-      "rankings": {
-        "worldRank": {
-          "number": 4822,
-          "percentile": null,
-          "color": "uncommon"
-        },
-        "regionRank": {
-          "number": 2148,
-          "percentile": null,
-          "color": "uncommon"
-        },
-        "serverRank": {
-          "number": 115,
-          "percentile": null,
-          "color": "epic"
-        }
-      },
-      "latestKill": {
-        "name": "Chimaerus, the Undreamt God",
-        "difficulty": "Mythic",
-        "reportCode": "cf2MWbwth3x6mDdp",
-        "endTime": "2026-05-28T21:00:41.055Z"
-      },
-      "killedBosses": [
-        {
-          "id": 10658,
-          "name": "Pit of Saron"
-        }
-      ],
-      "reportsScanned": 10,
-      "lastUpdated": "2026-08-17T19:30:04.890Z",
-      "preservedFromPrevious": true
+      "difficulty": null,
+      "difficultyName": null,
+      "difficultyShort": null,
+      "progressText": "Progress niet gevonden",
+      "rankings": null,
+      "latestKill": null,
+      "killedBosses": [],
+      "reportsScanned": 0,
+      "lastUpdated": "2026-08-17T20:29:59.006Z"
     }
   ]
 }
