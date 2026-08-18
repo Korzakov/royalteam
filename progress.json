@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-18T19:29:32.838Z",
+  "generatedAt": "2026-08-18T20:27:12.596Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -18,7 +18,7 @@
       "latestKill": null,
       "killedBosses": [],
       "reportsScanned": 0,
-      "lastUpdated": "2026-08-18T19:29:32.677Z"
+      "lastUpdated": "2026-08-18T20:27:12.395Z"
     },
     {
       "name": "Templars",
@@ -35,7 +35,7 @@
       "latestKill": null,
       "killedBosses": [],
       "reportsScanned": 0,
-      "lastUpdated": "2026-08-18T19:29:32.838Z"
+      "lastUpdated": "2026-08-18T20:27:12.596Z"
     }
   ]
 }
