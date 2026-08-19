@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-19T18:38:55.762Z",
+  "generatedAt": "2026-08-19T19:28:16.009Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -8,18 +8,18 @@
       "guildId": 744461,
       "zoneId": 53,
       "raid": "The Venomous Abyss",
-      "killed": 2,
+      "killed": 5,
       "total": 9,
       "difficulty": 3,
       "difficultyName": "Normal",
       "difficultyShort": "N",
-      "progressText": "2/9 N",
+      "progressText": "5/9 N",
       "rankings": null,
       "latestKill": {
         "name": "Nek'zali the Soulcoiler",
         "difficulty": "Normal",
         "reportCode": "F6grCnzmYV8c7xRf",
-        "endTime": "2026-08-19T18:33:20.763Z"
+        "endTime": "2026-08-19T19:27:09.986Z"
       },
       "killedBosses": [
         {
@@ -29,10 +29,22 @@
         {
           "id": 3497,
           "name": "The Lost Explorers"
+        },
+        {
+          "id": 3420,
+          "name": "Sszorak"
+        },
+        {
+          "id": 3445,
+          "name": "Entombed Sentinels"
+        },
+        {
+          "id": 3455,
+          "name": "Vashnik the Malignant"
         }
       ],
       "reportsScanned": 1,
-      "lastUpdated": "2026-08-19T18:38:55.588Z"
+      "lastUpdated": "2026-08-19T19:28:15.611Z"
     },
     {
       "name": "Templars",
@@ -49,7 +61,7 @@
       "latestKill": null,
       "killedBosses": [],
       "reportsScanned": 0,
-      "lastUpdated": "2026-08-19T18:38:55.762Z"
+      "lastUpdated": "2026-08-19T19:28:16.009Z"
     }
   ]
 }
