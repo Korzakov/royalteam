@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-20T21:30:32.456Z",
+  "generatedAt": "2026-08-20T22:30:41.010Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -52,7 +52,7 @@
         }
       ],
       "reportsScanned": 1,
-      "lastUpdated": "2026-08-20T21:30:32.165Z"
+      "lastUpdated": "2026-08-20T22:30:40.594Z"
     },
     {
       "name": "Templars",
@@ -70,7 +70,7 @@
         "name": "Nek'zali the Soulcoiler",
         "difficulty": "Normal",
         "reportCode": "1Wx24qnAcQNfLTYj",
-        "endTime": "2026-08-20T21:09:10.879Z"
+        "endTime": "2026-08-20T21:11:26.869Z"
       },
       "killedBosses": [
         {
@@ -103,7 +103,7 @@
         }
       ],
       "reportsScanned": 1,
-      "lastUpdated": "2026-08-20T21:30:32.456Z"
+      "lastUpdated": "2026-08-20T22:30:41.010Z"
     }
   ]
 }
