@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-20T20:31:39.629Z",
+  "generatedAt": "2026-08-20T21:30:32.456Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -52,25 +52,25 @@
         }
       ],
       "reportsScanned": 1,
-      "lastUpdated": "2026-08-20T20:31:39.446Z"
+      "lastUpdated": "2026-08-20T21:30:32.165Z"
     },
     {
       "name": "Templars",
       "guildId": 816789,
       "zoneId": 53,
       "raid": "The Venomous Abyss",
-      "killed": 6,
+      "killed": 7,
       "total": 9,
       "difficulty": 3,
       "difficultyName": "Normal",
       "difficultyShort": "N",
-      "progressText": "6/9 N",
+      "progressText": "7/9 N",
       "rankings": null,
       "latestKill": {
         "name": "Nek'zali the Soulcoiler",
         "difficulty": "Normal",
         "reportCode": "1Wx24qnAcQNfLTYj",
-        "endTime": "2026-08-20T20:25:26.575Z"
+        "endTime": "2026-08-20T21:09:10.879Z"
       },
       "killedBosses": [
         {
@@ -96,10 +96,14 @@
         {
           "id": 3421,
           "name": "The Twin Fangs"
+        },
+        {
+          "id": 3429,
+          "name": "The Coiled Altar"
         }
       ],
       "reportsScanned": 1,
-      "lastUpdated": "2026-08-20T20:31:39.629Z"
+      "lastUpdated": "2026-08-20T21:30:32.456Z"
     }
   ]
 }
