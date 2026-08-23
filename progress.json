@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-23T17:22:52.762Z",
+  "generatedAt": "2026-08-23T18:33:23.310Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -52,27 +52,31 @@
         }
       ],
       "reportsScanned": 1,
-      "lastUpdated": "2026-08-23T17:22:52.604Z"
+      "lastUpdated": "2026-08-23T18:33:23.161Z"
     },
     {
       "name": "Templars",
       "guildId": 816789,
       "zoneId": 53,
       "raid": "The Venomous Abyss",
-      "killed": 7,
+      "killed": 8,
       "total": 9,
       "difficulty": 3,
       "difficultyName": "Normal",
       "difficultyShort": "N",
-      "progressText": "7/9 N",
+      "progressText": "8/9 N",
       "rankings": null,
       "latestKill": {
-        "name": "Nek'zali the Soulcoiler",
+        "name": "Ula'tek",
         "difficulty": "Normal",
-        "reportCode": "1Wx24qnAcQNfLTYj",
-        "endTime": "2026-08-20T21:11:26.869Z"
+        "reportCode": "qPgfAjH2XN1acwxM",
+        "endTime": "2026-08-23T18:28:10.205Z"
       },
       "killedBosses": [
+        {
+          "id": 3492,
+          "name": "Ula'tek"
+        },
         {
           "id": 3470,
           "name": "Nek'zali the Soulcoiler"
@@ -102,8 +106,8 @@
           "name": "The Coiled Altar"
         }
       ],
-      "reportsScanned": 1,
-      "lastUpdated": "2026-08-23T17:22:52.762Z"
+      "reportsScanned": 2,
+      "lastUpdated": "2026-08-23T18:33:23.310Z"
     }
   ]
 }
