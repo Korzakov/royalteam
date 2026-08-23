@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-23T20:26:33.214Z",
+  "generatedAt": "2026-08-23T21:24:23.793Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -52,34 +52,38 @@
         }
       ],
       "reportsScanned": 1,
-      "lastUpdated": "2026-08-23T20:26:32.723Z"
+      "lastUpdated": "2026-08-23T21:24:23.604Z"
     },
     {
       "name": "Templars",
       "guildId": 816789,
       "zoneId": 53,
       "raid": "The Venomous Abyss",
-      "killed": 1,
+      "killed": 2,
       "total": 9,
       "difficulty": 4,
       "difficultyName": "Heroic",
       "difficultyShort": "H",
-      "progressText": "1/9 H",
+      "progressText": "2/9 H",
       "rankings": null,
       "latestKill": {
         "name": "Ula'tek",
         "difficulty": "Normal",
         "reportCode": "qPgfAjH2XN1acwxM",
-        "endTime": "2026-08-23T20:20:43.632Z"
+        "endTime": "2026-08-23T21:00:49.901Z"
       },
       "killedBosses": [
         {
           "id": 3470,
           "name": "Nek'zali the Soulcoiler"
+        },
+        {
+          "id": 3445,
+          "name": "Entombed Sentinels"
         }
       ],
       "reportsScanned": 2,
-      "lastUpdated": "2026-08-23T20:26:33.214Z"
+      "lastUpdated": "2026-08-23T21:24:23.793Z"
     }
   ]
 }
