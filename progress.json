@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-24T20:33:15.154Z",
+  "generatedAt": "2026-08-24T21:32:12.719Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -19,7 +19,7 @@
         "name": "Ula'tek",
         "difficulty": "Normal",
         "reportCode": "ax2cyfQwFdrXtkv7",
-        "endTime": "2026-08-24T20:25:36.272Z"
+        "endTime": "2026-08-24T21:07:12.009Z"
       },
       "killedBosses": [
         {
@@ -36,7 +36,7 @@
         }
       ],
       "reportsScanned": 2,
-      "lastUpdated": "2026-08-24T20:33:14.514Z"
+      "lastUpdated": "2026-08-24T21:32:12.564Z"
     },
     {
       "name": "Templars",
@@ -67,7 +67,7 @@
         }
       ],
       "reportsScanned": 2,
-      "lastUpdated": "2026-08-24T20:33:15.154Z"
+      "lastUpdated": "2026-08-24T21:32:12.719Z"
     }
   ]
 }
