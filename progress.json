@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-24T19:31:53.990Z",
+  "generatedAt": "2026-08-24T20:33:15.154Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -8,18 +8,18 @@
       "guildId": 744461,
       "zoneId": 53,
       "raid": "The Venomous Abyss",
-      "killed": 2,
+      "killed": 3,
       "total": 9,
       "difficulty": 4,
       "difficultyName": "Heroic",
       "difficultyShort": "H",
-      "progressText": "2/9 H",
+      "progressText": "3/9 H",
       "rankings": null,
       "latestKill": {
         "name": "Ula'tek",
         "difficulty": "Normal",
         "reportCode": "ax2cyfQwFdrXtkv7",
-        "endTime": "2026-08-24T19:23:57.149Z"
+        "endTime": "2026-08-24T20:25:36.272Z"
       },
       "killedBosses": [
         {
@@ -29,10 +29,14 @@
         {
           "id": 3445,
           "name": "Entombed Sentinels"
+        },
+        {
+          "id": 3497,
+          "name": "The Lost Explorers"
         }
       ],
       "reportsScanned": 2,
-      "lastUpdated": "2026-08-24T19:31:53.234Z"
+      "lastUpdated": "2026-08-24T20:33:14.514Z"
     },
     {
       "name": "Templars",
@@ -63,7 +67,7 @@
         }
       ],
       "reportsScanned": 2,
-      "lastUpdated": "2026-08-24T19:31:53.990Z"
+      "lastUpdated": "2026-08-24T20:33:15.154Z"
     }
   ]
 }
