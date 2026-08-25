@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-24T23:24:48.697Z",
+  "generatedAt": "2026-08-25T01:24:34.685Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -36,7 +36,7 @@
         }
       ],
       "reportsScanned": 2,
-      "lastUpdated": "2026-08-24T23:24:48.506Z"
+      "lastUpdated": "2026-08-25T01:24:33.814Z"
     },
     {
       "name": "Templars",
@@ -67,7 +67,7 @@
         }
       ],
       "reportsScanned": 2,
-      "lastUpdated": "2026-08-24T23:24:48.697Z"
+      "lastUpdated": "2026-08-25T01:24:34.685Z"
     }
   ]
 }
