@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-26T19:06:00.651Z",
+  "generatedAt": "2026-08-26T22:53:50.118Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -8,35 +8,39 @@
       "guildId": 744461,
       "zoneId": 53,
       "raid": "The Venomous Abyss",
-      "killed": 3,
+      "killed": 4,
       "total": 9,
       "difficulty": 4,
       "difficultyName": "Heroic",
       "difficultyShort": "H",
-      "progressText": "3/9 H",
+      "progressText": "4/9 H",
       "rankings": null,
       "latestKill": {
         "name": "Nek'zali the Soulcoiler",
         "difficulty": "Normal",
         "reportCode": "2yaLNF9WqGYfgKj4",
-        "endTime": "2026-08-26T18:59:06.257Z"
+        "endTime": "2026-08-26T21:04:14.369Z"
       },
       "killedBosses": [
+        {
+          "id": 3379,
+          "name": "Nymrissa Wavecaller"
+        },
         {
           "id": 3470,
           "name": "Nek'zali the Soulcoiler"
         },
         {
-          "id": 3445,
-          "name": "Entombed Sentinels"
-        },
-        {
           "id": 3497,
           "name": "The Lost Explorers"
+        },
+        {
+          "id": 3445,
+          "name": "Entombed Sentinels"
         }
       ],
       "reportsScanned": 3,
-      "lastUpdated": "2026-08-26T19:05:59.921Z"
+      "lastUpdated": "2026-08-26T22:53:49.536Z"
     },
     {
       "name": "Templars",
@@ -67,7 +71,7 @@
         }
       ],
       "reportsScanned": 2,
-      "lastUpdated": "2026-08-26T19:06:00.651Z"
+      "lastUpdated": "2026-08-26T22:53:50.118Z"
     }
   ]
 }
