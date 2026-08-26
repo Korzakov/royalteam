@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-26T16:20:07.450Z",
+  "generatedAt": "2026-08-26T19:06:00.651Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -16,10 +16,10 @@
       "progressText": "3/9 H",
       "rankings": null,
       "latestKill": {
-        "name": "Ula'tek",
+        "name": "Nek'zali the Soulcoiler",
         "difficulty": "Normal",
-        "reportCode": "ax2cyfQwFdrXtkv7",
-        "endTime": "2026-08-24T21:07:12.009Z"
+        "reportCode": "2yaLNF9WqGYfgKj4",
+        "endTime": "2026-08-26T18:59:06.257Z"
       },
       "killedBosses": [
         {
@@ -35,8 +35,8 @@
           "name": "The Lost Explorers"
         }
       ],
-      "reportsScanned": 2,
-      "lastUpdated": "2026-08-26T16:20:06.755Z"
+      "reportsScanned": 3,
+      "lastUpdated": "2026-08-26T19:05:59.921Z"
     },
     {
       "name": "Templars",
@@ -67,7 +67,7 @@
         }
       ],
       "reportsScanned": 2,
-      "lastUpdated": "2026-08-26T16:20:07.450Z"
+      "lastUpdated": "2026-08-26T19:06:00.651Z"
     }
   ]
 }
