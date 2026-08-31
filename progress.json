@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-31T16:52:04.811Z",
+  "generatedAt": "2026-08-31T21:47:50.499Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -8,20 +8,32 @@
       "guildId": 744461,
       "zoneId": 53,
       "raid": "The Venomous Abyss",
-      "killed": 4,
+      "killed": 7,
       "total": 9,
       "difficulty": 4,
       "difficultyName": "Heroic",
       "difficultyShort": "H",
-      "progressText": "4/9 H",
+      "progressText": "7/9 H",
       "rankings": null,
       "latestKill": {
-        "name": "Nek'zali the Soulcoiler",
-        "difficulty": "Normal",
-        "reportCode": "2yaLNF9WqGYfgKj4",
-        "endTime": "2026-08-26T21:04:14.369Z"
+        "name": "Vashnik the Malignant",
+        "difficulty": "Heroic",
+        "reportCode": "warcXgCBAx6Tj78J",
+        "endTime": "2026-08-31T21:03:31.543Z"
       },
       "killedBosses": [
+        {
+          "id": 3455,
+          "name": "Vashnik the Malignant"
+        },
+        {
+          "id": 3420,
+          "name": "Sszorak"
+        },
+        {
+          "id": 3421,
+          "name": "The Twin Fangs"
+        },
         {
           "id": 3379,
           "name": "Nymrissa Wavecaller"
@@ -39,8 +51,8 @@
           "name": "Entombed Sentinels"
         }
       ],
-      "reportsScanned": 3,
-      "lastUpdated": "2026-08-31T16:52:04.136Z"
+      "reportsScanned": 4,
+      "lastUpdated": "2026-08-31T21:47:49.848Z"
     },
     {
       "name": "Templars",
@@ -71,7 +83,7 @@
         }
       ],
       "reportsScanned": 2,
-      "lastUpdated": "2026-08-31T16:52:04.811Z"
+      "lastUpdated": "2026-08-31T21:47:50.499Z"
     }
   ]
 }
