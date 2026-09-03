@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-03T20:43:20.078Z",
+  "generatedAt": "2026-09-03T23:04:39.457Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -52,7 +52,7 @@
         }
       ],
       "reportsScanned": 4,
-      "lastUpdated": "2026-09-03T20:43:19.090Z"
+      "lastUpdated": "2026-09-03T23:04:38.490Z"
     },
     {
       "name": "Templars",
@@ -70,7 +70,7 @@
         "name": "Nymrissa Wavecaller",
         "difficulty": "Heroic",
         "reportCode": "8LMKxwB9WtHk4aQZ",
-        "endTime": "2026-09-03T20:37:29.629Z"
+        "endTime": "2026-09-03T21:06:27.998Z"
       },
       "killedBosses": [
         {
@@ -99,7 +99,7 @@
         }
       ],
       "reportsScanned": 3,
-      "lastUpdated": "2026-09-03T20:43:20.078Z"
+      "lastUpdated": "2026-09-03T23:04:39.457Z"
     }
   ]
 }
