@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-06T17:32:56.169Z",
+  "generatedAt": "2026-09-06T20:11:30.694Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -52,7 +52,7 @@
         }
       ],
       "reportsScanned": 4,
-      "lastUpdated": "2026-09-06T17:32:55.357Z"
+      "lastUpdated": "2026-09-06T20:11:26.460Z"
     },
     {
       "name": "Templars",
@@ -98,8 +98,8 @@
           "name": "Sszorak"
         }
       ],
-      "reportsScanned": 3,
-      "lastUpdated": "2026-09-06T17:32:56.169Z"
+      "reportsScanned": 4,
+      "lastUpdated": "2026-09-06T20:11:30.694Z"
     }
   ]
 }
