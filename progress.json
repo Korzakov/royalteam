@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-09T14:15:00.591Z",
+  "generatedAt": "2026-09-09T18:22:57.481Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -16,12 +16,20 @@
       "progressText": "7/9 H",
       "rankings": null,
       "latestKill": {
-        "name": "Vashnik the Malignant",
+        "name": "Nymrissa Wavecaller",
         "difficulty": "Heroic",
-        "reportCode": "warcXgCBAx6Tj78J",
-        "endTime": "2026-08-31T21:03:31.543Z"
+        "reportCode": "ATmPLbyd86GrcvxZ",
+        "endTime": "2026-09-09T18:21:12.344Z"
       },
       "killedBosses": [
+        {
+          "id": 3379,
+          "name": "Nymrissa Wavecaller"
+        },
+        {
+          "id": 3470,
+          "name": "Nek'zali the Soulcoiler"
+        },
         {
           "id": 3455,
           "name": "Vashnik the Malignant"
@@ -35,14 +43,6 @@
           "name": "The Twin Fangs"
         },
         {
-          "id": 3379,
-          "name": "Nymrissa Wavecaller"
-        },
-        {
-          "id": 3470,
-          "name": "Nek'zali the Soulcoiler"
-        },
-        {
           "id": 3497,
           "name": "The Lost Explorers"
         },
@@ -51,8 +51,8 @@
           "name": "Entombed Sentinels"
         }
       ],
-      "reportsScanned": 4,
-      "lastUpdated": "2026-09-09T14:14:59.526Z"
+      "reportsScanned": 5,
+      "lastUpdated": "2026-09-09T18:22:56.262Z"
     },
     {
       "name": "Templars",
@@ -99,7 +99,7 @@
         }
       ],
       "reportsScanned": 4,
-      "lastUpdated": "2026-09-09T14:15:00.591Z"
+      "lastUpdated": "2026-09-09T18:22:57.481Z"
     }
   ]
 }
