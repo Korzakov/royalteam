@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-10T17:33:45.387Z",
+  "generatedAt": "2026-09-10T20:36:30.984Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -56,25 +56,25 @@
         }
       ],
       "reportsScanned": 5,
-      "lastUpdated": "2026-09-10T17:33:44.302Z"
+      "lastUpdated": "2026-09-10T20:36:29.448Z"
     },
     {
       "name": "Templars",
       "guildId": 816789,
       "zoneId": 53,
       "raid": "The Venomous Abyss",
-      "killed": 6,
+      "killed": 7,
       "total": 9,
       "difficulty": 4,
       "difficultyName": "Heroic",
       "difficultyShort": "H",
-      "progressText": "6/9 H",
+      "progressText": "7/9 H",
       "rankings": null,
       "latestKill": {
         "name": "Nymrissa Wavecaller",
         "difficulty": "Heroic",
-        "reportCode": "8LMKxwB9WtHk4aQZ",
-        "endTime": "2026-09-03T21:06:27.998Z"
+        "reportCode": "tBpkJ1rWQqaYZyVA",
+        "endTime": "2026-09-10T20:28:02.150Z"
       },
       "killedBosses": [
         {
@@ -100,10 +100,14 @@
         {
           "id": 3420,
           "name": "Sszorak"
+        },
+        {
+          "id": 3421,
+          "name": "The Twin Fangs"
         }
       ],
-      "reportsScanned": 4,
-      "lastUpdated": "2026-09-10T17:33:45.387Z"
+      "reportsScanned": 5,
+      "lastUpdated": "2026-09-10T20:36:30.984Z"
     }
   ]
 }
