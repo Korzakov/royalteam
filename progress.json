@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-13T18:37:29.532Z",
+  "generatedAt": "2026-09-13T21:16:34.408Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -56,27 +56,31 @@
         }
       ],
       "reportsScanned": 5,
-      "lastUpdated": "2026-09-13T18:37:28.110Z"
+      "lastUpdated": "2026-09-13T21:16:32.977Z"
     },
     {
       "name": "Templars",
       "guildId": 816789,
       "zoneId": 53,
       "raid": "The Venomous Abyss",
-      "killed": 7,
+      "killed": 8,
       "total": 9,
       "difficulty": 4,
       "difficultyName": "Heroic",
       "difficultyShort": "H",
-      "progressText": "7/9 H",
+      "progressText": "8/9 H",
       "rankings": null,
       "latestKill": {
-        "name": "Nymrissa Wavecaller",
+        "name": "The Coiled Altar",
         "difficulty": "Heroic",
-        "reportCode": "tBpkJ1rWQqaYZyVA",
-        "endTime": "2026-09-10T21:05:16.984Z"
+        "reportCode": "RdqAG9BgmkxLzTwY",
+        "endTime": "2026-09-13T20:58:43.640Z"
       },
       "killedBosses": [
+        {
+          "id": 3429,
+          "name": "The Coiled Altar"
+        },
         {
           "id": 3379,
           "name": "Nymrissa Wavecaller"
@@ -107,7 +111,7 @@
         }
       ],
       "reportsScanned": 6,
-      "lastUpdated": "2026-09-13T18:37:29.532Z"
+      "lastUpdated": "2026-09-13T21:16:34.408Z"
     }
   ]
 }
