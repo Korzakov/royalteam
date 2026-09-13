@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-13T15:51:48.888Z",
+  "generatedAt": "2026-09-13T18:37:29.532Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -56,7 +56,7 @@
         }
       ],
       "reportsScanned": 5,
-      "lastUpdated": "2026-09-13T15:51:47.428Z"
+      "lastUpdated": "2026-09-13T18:37:28.110Z"
     },
     {
       "name": "Templars",
@@ -106,8 +106,8 @@
           "name": "The Twin Fangs"
         }
       ],
-      "reportsScanned": 5,
-      "lastUpdated": "2026-09-13T15:51:48.888Z"
+      "reportsScanned": 6,
+      "lastUpdated": "2026-09-13T18:37:29.532Z"
     }
   ]
 }
