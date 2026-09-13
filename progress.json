@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-13T21:16:34.408Z",
+  "generatedAt": "2026-09-13T23:57:07.966Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -56,7 +56,7 @@
         }
       ],
       "reportsScanned": 5,
-      "lastUpdated": "2026-09-13T21:16:32.977Z"
+      "lastUpdated": "2026-09-13T23:57:05.514Z"
     },
     {
       "name": "Templars",
@@ -74,7 +74,7 @@
         "name": "The Coiled Altar",
         "difficulty": "Heroic",
         "reportCode": "RdqAG9BgmkxLzTwY",
-        "endTime": "2026-09-13T20:58:43.640Z"
+        "endTime": "2026-09-13T21:43:55.442Z"
       },
       "killedBosses": [
         {
@@ -111,7 +111,7 @@
         }
       ],
       "reportsScanned": 6,
-      "lastUpdated": "2026-09-13T21:16:34.408Z"
+      "lastUpdated": "2026-09-13T23:57:07.966Z"
     }
   ]
 }
