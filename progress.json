@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-14T16:50:43.739Z",
+  "generatedAt": "2026-09-14T23:43:59.677Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -8,55 +8,43 @@
       "guildId": 744461,
       "zoneId": 53,
       "raid": "The Venomous Abyss",
-      "killed": 8,
+      "killed": 1,
       "total": 9,
-      "difficulty": 4,
-      "difficultyName": "Heroic",
-      "difficultyShort": "H",
-      "progressText": "8/9 H",
-      "rankings": null,
+      "difficulty": 5,
+      "difficultyName": "Mythic",
+      "difficultyShort": "M",
+      "progressText": "1/9 M",
+      "rankings": {
+        "worldRank": {
+          "number": 2917,
+          "percentile": null,
+          "color": "uncommon"
+        },
+        "regionRank": {
+          "number": 1292,
+          "percentile": null,
+          "color": "uncommon"
+        },
+        "serverRank": {
+          "number": 68,
+          "percentile": null,
+          "color": "legendary"
+        }
+      },
       "latestKill": {
-        "name": "Nymrissa Wavecaller",
-        "difficulty": "Heroic",
-        "reportCode": "ATmPLbyd86GrcvxZ",
-        "endTime": "2026-09-09T20:58:17.006Z"
+        "name": "Nek'zali the Soulcoiler",
+        "difficulty": "Mythic",
+        "reportCode": "RC942j86VmbrMztF",
+        "endTime": "2026-09-14T21:02:55.581Z"
       },
       "killedBosses": [
         {
-          "id": 3379,
-          "name": "Nymrissa Wavecaller"
-        },
-        {
           "id": 3470,
           "name": "Nek'zali the Soulcoiler"
-        },
-        {
-          "id": 3445,
-          "name": "Entombed Sentinels"
-        },
-        {
-          "id": 3455,
-          "name": "Vashnik the Malignant"
-        },
-        {
-          "id": 3497,
-          "name": "The Lost Explorers"
-        },
-        {
-          "id": 3420,
-          "name": "Sszorak"
-        },
-        {
-          "id": 3421,
-          "name": "The Twin Fangs"
-        },
-        {
-          "id": 3429,
-          "name": "The Coiled Altar"
         }
       ],
-      "reportsScanned": 5,
-      "lastUpdated": "2026-09-14T16:50:41.913Z"
+      "reportsScanned": 6,
+      "lastUpdated": "2026-09-14T23:43:57.940Z"
     },
     {
       "name": "Templars",
@@ -111,7 +99,7 @@
         }
       ],
       "reportsScanned": 6,
-      "lastUpdated": "2026-09-14T16:50:43.738Z"
+      "lastUpdated": "2026-09-14T23:43:59.677Z"
     }
   ]
 }
