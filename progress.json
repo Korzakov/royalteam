@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-17T18:01:18.185Z",
+  "generatedAt": "2026-09-17T21:58:00.438Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -16,17 +16,17 @@
       "progressText": "1/10 M",
       "rankings": {
         "worldRank": {
-          "number": 2980,
+          "number": 3009,
           "percentile": null,
           "color": "uncommon"
         },
         "regionRank": {
-          "number": 1313,
+          "number": 1333,
           "percentile": null,
           "color": "uncommon"
         },
         "serverRank": {
-          "number": 70,
+          "number": 71,
           "percentile": null,
           "color": "legendary"
         }
@@ -44,7 +44,7 @@
         }
       ],
       "reportsScanned": 7,
-      "lastUpdated": "2026-09-17T18:01:15.810Z"
+      "lastUpdated": "2026-09-17T21:57:57.929Z"
     },
     {
       "name": "Templars",
@@ -59,16 +59,12 @@
       "progressText": "8/10 H",
       "rankings": null,
       "latestKill": {
-        "name": "The Coiled Altar",
+        "name": "Nymrissa Wavecaller",
         "difficulty": "Heroic",
-        "reportCode": "RdqAG9BgmkxLzTwY",
-        "endTime": "2026-09-13T21:43:55.442Z"
+        "reportCode": "wvrxDqzyFjMHGTa1",
+        "endTime": "2026-09-17T21:03:54.315Z"
       },
       "killedBosses": [
-        {
-          "id": 3429,
-          "name": "The Coiled Altar"
-        },
         {
           "id": 3379,
           "name": "Nymrissa Wavecaller"
@@ -96,10 +92,14 @@
         {
           "id": 3421,
           "name": "The Twin Fangs"
+        },
+        {
+          "id": 3429,
+          "name": "The Coiled Altar"
         }
       ],
-      "reportsScanned": 6,
-      "lastUpdated": "2026-09-17T18:01:18.185Z"
+      "reportsScanned": 7,
+      "lastUpdated": "2026-09-17T21:58:00.438Z"
     }
   ]
 }
