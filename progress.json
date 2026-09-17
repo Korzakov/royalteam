@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-17T13:11:46.343Z",
+  "generatedAt": "2026-09-17T18:01:18.185Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -9,11 +9,11 @@
       "zoneId": 53,
       "raid": "The Venomous Abyss",
       "killed": 1,
-      "total": 9,
+      "total": 10,
       "difficulty": 5,
       "difficultyName": "Mythic",
       "difficultyShort": "M",
-      "progressText": "1/9 M",
+      "progressText": "1/10 M",
       "rankings": {
         "worldRank": {
           "number": 2980,
@@ -44,7 +44,7 @@
         }
       ],
       "reportsScanned": 7,
-      "lastUpdated": "2026-09-17T13:11:44.073Z"
+      "lastUpdated": "2026-09-17T18:01:15.810Z"
     },
     {
       "name": "Templars",
@@ -52,11 +52,11 @@
       "zoneId": 53,
       "raid": "The Venomous Abyss",
       "killed": 8,
-      "total": 9,
+      "total": 10,
       "difficulty": 4,
       "difficultyName": "Heroic",
       "difficultyShort": "H",
-      "progressText": "8/9 H",
+      "progressText": "8/10 H",
       "rankings": null,
       "latestKill": {
         "name": "The Coiled Altar",
@@ -99,7 +99,7 @@
         }
       ],
       "reportsScanned": 6,
-      "lastUpdated": "2026-09-17T13:11:46.343Z"
+      "lastUpdated": "2026-09-17T18:01:18.185Z"
     }
   ]
 }
