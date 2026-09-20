@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-20T18:06:01.639Z",
+  "generatedAt": "2026-09-20T21:16:42.848Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -44,7 +44,7 @@
         }
       ],
       "reportsScanned": 7,
-      "lastUpdated": "2026-09-20T18:05:59.900Z"
+      "lastUpdated": "2026-09-20T21:16:40.210Z"
     },
     {
       "name": "Templars",
@@ -98,8 +98,8 @@
           "name": "The Coiled Altar"
         }
       ],
-      "reportsScanned": 7,
-      "lastUpdated": "2026-09-20T18:06:01.639Z"
+      "reportsScanned": 8,
+      "lastUpdated": "2026-09-20T21:16:42.848Z"
     }
   ]
 }
