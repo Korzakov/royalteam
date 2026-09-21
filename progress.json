@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-21T16:52:00.976Z",
+  "generatedAt": "2026-09-21T20:52:31.465Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -16,17 +16,17 @@
       "progressText": "1/10 M",
       "rankings": {
         "worldRank": {
-          "number": 3132,
+          "number": 3194,
           "percentile": null,
           "color": "uncommon"
         },
         "regionRank": {
-          "number": 1378,
+          "number": 1418,
           "percentile": null,
           "color": "uncommon"
         },
         "serverRank": {
-          "number": 73,
+          "number": 80,
           "percentile": null,
           "color": "legendary"
         }
@@ -43,8 +43,8 @@
           "name": "Nek'zali the Soulcoiler"
         }
       ],
-      "reportsScanned": 7,
-      "lastUpdated": "2026-09-21T16:51:58.132Z"
+      "reportsScanned": 8,
+      "lastUpdated": "2026-09-21T20:52:29.168Z"
     },
     {
       "name": "Templars",
@@ -99,7 +99,7 @@
         }
       ],
       "reportsScanned": 8,
-      "lastUpdated": "2026-09-21T16:52:00.976Z"
+      "lastUpdated": "2026-09-21T20:52:31.465Z"
     }
   ]
 }
