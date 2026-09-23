@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-23T16:25:56.906Z",
+  "generatedAt": "2026-09-23T20:01:13.486Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -32,10 +32,10 @@
         }
       },
       "latestKill": {
-        "name": "Nymrissa Wavecaller",
+        "name": "Nek'zali the Soulcoiler",
         "difficulty": "Heroic",
-        "reportCode": "wPnqYpaHNzXdQ31v",
-        "endTime": "2026-09-16T21:00:30.228Z"
+        "reportCode": "Y4TqZmWp9jKLxz1R",
+        "endTime": "2026-09-23T19:58:28.473Z"
       },
       "killedBosses": [
         {
@@ -43,8 +43,8 @@
           "name": "Nek'zali the Soulcoiler"
         }
       ],
-      "reportsScanned": 8,
-      "lastUpdated": "2026-09-23T16:25:53.344Z"
+      "reportsScanned": 9,
+      "lastUpdated": "2026-09-23T20:01:10.365Z"
     },
     {
       "name": "Templars",
@@ -99,7 +99,7 @@
         }
       ],
       "reportsScanned": 8,
-      "lastUpdated": "2026-09-23T16:25:56.906Z"
+      "lastUpdated": "2026-09-23T20:01:13.486Z"
     }
   ]
 }
