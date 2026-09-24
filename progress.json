@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-24T14:43:07.639Z",
+  "generatedAt": "2026-09-24T18:52:56.859Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -44,7 +44,7 @@
         }
       ],
       "reportsScanned": 9,
-      "lastUpdated": "2026-09-24T14:43:04.772Z"
+      "lastUpdated": "2026-09-24T18:52:50.203Z"
     },
     {
       "name": "Templars",
@@ -59,16 +59,12 @@
       "progressText": "8/10 H",
       "rankings": null,
       "latestKill": {
-        "name": "Nymrissa Wavecaller",
+        "name": "Nek'zali the Soulcoiler",
         "difficulty": "Heroic",
-        "reportCode": "wvrxDqzyFjMHGTa1",
-        "endTime": "2026-09-17T21:03:54.315Z"
+        "reportCode": "f8HdWc2ynmJZXCDV",
+        "endTime": "2026-09-24T18:51:58.121Z"
       },
       "killedBosses": [
-        {
-          "id": 3379,
-          "name": "Nymrissa Wavecaller"
-        },
         {
           "id": 3470,
           "name": "Nek'zali the Soulcoiler"
@@ -86,6 +82,10 @@
           "name": "The Lost Explorers"
         },
         {
+          "id": 3379,
+          "name": "Nymrissa Wavecaller"
+        },
+        {
           "id": 3420,
           "name": "Sszorak"
         },
@@ -98,8 +98,8 @@
           "name": "The Coiled Altar"
         }
       ],
-      "reportsScanned": 8,
-      "lastUpdated": "2026-09-24T14:43:07.639Z"
+      "reportsScanned": 9,
+      "lastUpdated": "2026-09-24T18:52:56.859Z"
     }
   ]
 }
