@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-24T18:52:56.859Z",
+  "generatedAt": "2026-09-24T22:07:10.680Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -44,7 +44,7 @@
         }
       ],
       "reportsScanned": 9,
-      "lastUpdated": "2026-09-24T18:52:50.203Z"
+      "lastUpdated": "2026-09-24T22:07:07.477Z"
     },
     {
       "name": "Templars",
@@ -62,7 +62,7 @@
         "name": "Nek'zali the Soulcoiler",
         "difficulty": "Heroic",
         "reportCode": "f8HdWc2ynmJZXCDV",
-        "endTime": "2026-09-24T18:51:58.121Z"
+        "endTime": "2026-09-24T20:56:13.050Z"
       },
       "killedBosses": [
         {
@@ -82,10 +82,6 @@
           "name": "The Lost Explorers"
         },
         {
-          "id": 3379,
-          "name": "Nymrissa Wavecaller"
-        },
-        {
           "id": 3420,
           "name": "Sszorak"
         },
@@ -96,10 +92,14 @@
         {
           "id": 3429,
           "name": "The Coiled Altar"
+        },
+        {
+          "id": 3379,
+          "name": "Nymrissa Wavecaller"
         }
       ],
       "reportsScanned": 9,
-      "lastUpdated": "2026-09-24T18:52:56.859Z"
+      "lastUpdated": "2026-09-24T22:07:10.680Z"
     }
   ]
 }
