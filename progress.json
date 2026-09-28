@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-28T00:24:46.717Z",
+  "generatedAt": "2026-09-28T06:28:06.224Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -16,7 +16,7 @@
       "progressText": "1/10 M",
       "rankings": {
         "worldRank": {
-          "number": 3583,
+          "number": 3596,
           "percentile": null,
           "color": "uncommon"
         },
@@ -44,7 +44,7 @@
         }
       ],
       "reportsScanned": 9,
-      "lastUpdated": "2026-09-28T00:24:43.214Z"
+      "lastUpdated": "2026-09-28T06:28:02.868Z"
     },
     {
       "name": "Templars",
@@ -59,12 +59,12 @@
       "progressText": "1/10 M",
       "rankings": {
         "worldRank": {
-          "number": 4010,
+          "number": 4018,
           "percentile": null,
           "color": "uncommon"
         },
         "regionRank": {
-          "number": 1765,
+          "number": 1768,
           "percentile": null,
           "color": "uncommon"
         },
@@ -87,7 +87,7 @@
         }
       ],
       "reportsScanned": 10,
-      "lastUpdated": "2026-09-28T00:24:46.717Z"
+      "lastUpdated": "2026-09-28T06:28:06.224Z"
     }
   ]
 }
