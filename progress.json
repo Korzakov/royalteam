@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-01T16:08:39.360Z",
+  "generatedAt": "2026-10-01T21:39:41.708Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -16,17 +16,17 @@
       "progressText": "1/10 M",
       "rankings": {
         "worldRank": {
-          "number": 3784,
+          "number": 3837,
           "percentile": null,
           "color": "uncommon"
         },
         "regionRank": {
-          "number": 1660,
+          "number": 1700,
           "percentile": null,
           "color": "uncommon"
         },
         "serverRank": {
-          "number": 93,
+          "number": 100,
           "percentile": null,
           "color": "legendary"
         }
@@ -44,7 +44,7 @@
         }
       ],
       "reportsScanned": 10,
-      "lastUpdated": "2026-10-01T16:08:35.809Z"
+      "lastUpdated": "2026-10-01T21:39:35.583Z"
     },
     {
       "name": "Templars",
@@ -53,41 +53,41 @@
       "raid": "The Venomous Abyss",
       "killed": 1,
       "total": 10,
-      "difficulty": 5,
+      "difficulty": 10,
       "difficultyName": "Mythic",
       "difficultyShort": "M",
       "progressText": "1/10 M",
       "rankings": {
         "worldRank": {
-          "number": 4084,
+          "number": 3758,
           "percentile": null,
           "color": "uncommon"
         },
         "regionRank": {
-          "number": 1797,
+          "number": 1666,
           "percentile": null,
           "color": "uncommon"
         },
         "serverRank": {
-          "number": 101,
+          "number": 97,
           "percentile": null,
-          "color": "epic"
+          "color": "legendary"
         }
       },
       "latestKill": {
-        "name": "Ula'tek",
+        "name": "Nek'zali the Soulcoiler",
         "difficulty": "Heroic",
-        "reportCode": "KwXbBAtgfaqhNZ37",
-        "endTime": "2026-09-27T21:02:14.975Z"
+        "reportCode": "yrxGqpLQf8jBKXZw",
+        "endTime": "2026-10-01T21:06:25.048Z"
       },
       "killedBosses": [
         {
-          "id": 3470,
-          "name": "Nek'zali the Soulcoiler"
+          "id": 12813,
+          "name": "Murder Row"
         }
       ],
       "reportsScanned": 10,
-      "lastUpdated": "2026-10-01T16:08:39.360Z"
+      "lastUpdated": "2026-10-01T21:39:41.708Z"
     }
   ]
 }
