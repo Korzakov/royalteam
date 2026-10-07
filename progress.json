@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-07T14:25:44.722Z",
+  "generatedAt": "2026-10-07T20:29:44.420Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -8,20 +8,20 @@
       "guildId": 744461,
       "zoneId": 53,
       "raid": "The Venomous Abyss",
-      "killed": 1,
+      "killed": 2,
       "total": 10,
       "difficulty": 5,
       "difficultyName": "Mythic",
       "difficultyShort": "M",
-      "progressText": "1/10 M",
+      "progressText": "2/10 M",
       "rankings": {
         "worldRank": {
-          "number": 3963,
+          "number": 3969,
           "percentile": null,
           "color": "uncommon"
         },
         "regionRank": {
-          "number": 1766,
+          "number": 1768,
           "percentile": null,
           "color": "uncommon"
         },
@@ -34,17 +34,21 @@
       "latestKill": {
         "name": "Nek'zali the Soulcoiler",
         "difficulty": "Heroic",
-        "reportCode": "GfKVLcAJX1w2HghF",
-        "endTime": "2026-09-30T20:52:12.456Z"
+        "reportCode": "Tc9gjW8wnFyRhMvb",
+        "endTime": "2026-10-07T20:26:14.936Z"
       },
       "killedBosses": [
         {
           "id": 3470,
           "name": "Nek'zali the Soulcoiler"
+        },
+        {
+          "id": 3497,
+          "name": "The Lost Explorers"
         }
       ],
       "reportsScanned": 10,
-      "lastUpdated": "2026-10-07T14:25:44.478Z"
+      "lastUpdated": "2026-10-07T20:29:44.147Z"
     },
     {
       "name": "Templars",
@@ -59,12 +63,12 @@
       "progressText": "1/10 M",
       "rankings": {
         "worldRank": {
-          "number": 3786,
+          "number": 3791,
           "percentile": null,
           "color": "uncommon"
         },
         "regionRank": {
-          "number": 1675,
+          "number": 1678,
           "percentile": null,
           "color": "uncommon"
         },
@@ -87,7 +91,7 @@
         }
       ],
       "reportsScanned": 10,
-      "lastUpdated": "2026-10-07T14:25:44.722Z"
+      "lastUpdated": "2026-10-07T20:29:44.420Z"
     }
   ]
 }
