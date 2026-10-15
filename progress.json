@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-15T14:07:34.376Z",
+  "generatedAt": "2026-10-15T18:57:20.359Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -16,12 +16,12 @@
       "progressText": "2/10 M",
       "rankings": {
         "worldRank": {
-          "number": 3521,
+          "number": 3527,
           "percentile": null,
           "color": "uncommon"
         },
         "regionRank": {
-          "number": 1600,
+          "number": 1601,
           "percentile": null,
           "color": "uncommon"
         },
@@ -48,7 +48,7 @@
         }
       ],
       "reportsScanned": 10,
-      "lastUpdated": "2026-10-15T14:07:34.183Z"
+      "lastUpdated": "2026-10-15T18:57:20.079Z"
     },
     {
       "name": "Templars",
@@ -63,12 +63,12 @@
       "progressText": "1/10 M",
       "rankings": {
         "worldRank": {
-          "number": 3915,
+          "number": 3922,
           "percentile": null,
           "color": "uncommon"
         },
         "regionRank": {
-          "number": 1734,
+          "number": 1736,
           "percentile": null,
           "color": "uncommon"
         },
@@ -79,10 +79,10 @@
         }
       },
       "latestKill": {
-        "name": "The Coiled Altar",
+        "name": "Nek'zali the Soulcoiler",
         "difficulty": "Heroic",
-        "reportCode": "cZ6wBrhkfCnN1LAm",
-        "endTime": "2026-10-08T20:56:01.677Z"
+        "reportCode": "NwncTjvfL9qC3Ggy",
+        "endTime": "2026-10-15T18:52:39.225Z"
       },
       "killedBosses": [
         {
@@ -91,7 +91,7 @@
         }
       ],
       "reportsScanned": 10,
-      "lastUpdated": "2026-10-15T14:07:34.376Z"
+      "lastUpdated": "2026-10-15T18:57:20.359Z"
     }
   ]
 }
