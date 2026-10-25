@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-25T17:29:20.576Z",
+  "generatedAt": "2026-10-25T20:34:40.682Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -56,7 +56,7 @@
         }
       ],
       "reportsScanned": 10,
-      "lastUpdated": "2026-10-25T17:29:20.321Z"
+      "lastUpdated": "2026-10-25T20:34:40.427Z"
     },
     {
       "name": "Templars",
@@ -87,10 +87,10 @@
         }
       },
       "latestKill": {
-        "name": "Kith'ix",
-        "difficulty": "Heroic",
-        "reportCode": "m3hTFtp2YWkDV1xv",
-        "endTime": "2026-10-22T21:05:16.663Z"
+        "name": "Entombed Sentinels",
+        "difficulty": "Mythic",
+        "reportCode": "d8ALWqKYV3CDJHp4",
+        "endTime": "2026-10-25T20:31:50.398Z"
       },
       "killedBosses": [
         {
@@ -99,7 +99,7 @@
         }
       ],
       "reportsScanned": 10,
-      "lastUpdated": "2026-10-25T17:29:20.576Z"
+      "lastUpdated": "2026-10-25T20:34:40.682Z"
     }
   ]
 }
