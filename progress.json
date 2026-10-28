@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-28T18:05:02.945Z",
+  "generatedAt": "2026-10-28T22:59:33.852Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -34,8 +34,8 @@
       "latestKill": {
         "name": "Kith'ix",
         "difficulty": "Heroic",
-        "reportCode": "n7QxbCKNdMDq6HXy",
-        "endTime": "2026-10-21T20:58:38.245Z"
+        "reportCode": "PNajqxvMV8CcJpy2",
+        "endTime": "2026-10-28T22:00:18.190Z"
       },
       "killedBosses": [
         {
@@ -56,7 +56,7 @@
         }
       ],
       "reportsScanned": 10,
-      "lastUpdated": "2026-10-28T18:05:02.773Z"
+      "lastUpdated": "2026-10-28T22:59:31.608Z"
     },
     {
       "name": "Templars",
@@ -71,17 +71,17 @@
       "progressText": "1/10 M",
       "rankings": {
         "worldRank": {
-          "number": 3896,
+          "number": 3911,
           "percentile": null,
           "color": "uncommon"
         },
         "regionRank": {
-          "number": 1733,
+          "number": 1744,
           "percentile": null,
           "color": "uncommon"
         },
         "serverRank": {
-          "number": 97,
+          "number": 98,
           "percentile": null,
           "color": "legendary"
         }
@@ -99,7 +99,7 @@
         }
       ],
       "reportsScanned": 10,
-      "lastUpdated": "2026-10-28T18:05:02.945Z"
+      "lastUpdated": "2026-10-28T22:59:33.852Z"
     }
   ]
 }
