@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T18:27:55.766Z",
+  "generatedAt": "2026-11-12T01:22:42.720Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -8,12 +8,12 @@
       "guildId": 744461,
       "zoneId": 53,
       "raid": "The Venomous Abyss",
-      "killed": 5,
+      "killed": 6,
       "total": 10,
       "difficulty": 5,
       "difficultyName": "Mythic",
       "difficultyShort": "M",
-      "progressText": "5/10 M",
+      "progressText": "6/10 M",
       "rankings": {
         "worldRank": {
           "number": 3223,
@@ -32,16 +32,12 @@
         }
       },
       "latestKill": {
-        "name": "Sszorak",
+        "name": "Nek'zali the Soulcoiler",
         "difficulty": "Mythic",
-        "reportCode": "RP8VwCZ2TgMNkxtp",
-        "endTime": "2026-11-09T21:16:28.543Z"
+        "reportCode": "9dgAxWn3LNjc8aYX",
+        "endTime": "2026-11-11T20:59:54.330Z"
       },
       "killedBosses": [
-        {
-          "id": 3420,
-          "name": "Sszorak"
-        },
         {
           "id": 3470,
           "name": "Nek'zali the Soulcoiler"
@@ -55,12 +51,20 @@
           "name": "Entombed Sentinels"
         },
         {
+          "id": 3455,
+          "name": "Vashnik the Malignant"
+        },
+        {
+          "id": 3420,
+          "name": "Sszorak"
+        },
+        {
           "id": 3379,
           "name": "Nymrissa Wavecaller"
         }
       ],
       "reportsScanned": 10,
-      "lastUpdated": "2026-11-11T18:27:53.165Z"
+      "lastUpdated": "2026-11-12T01:22:40.215Z"
     },
     {
       "name": "Templars",
@@ -103,7 +107,7 @@
         }
       ],
       "reportsScanned": 10,
-      "lastUpdated": "2026-11-11T18:27:55.766Z",
+      "lastUpdated": "2026-11-12T01:22:42.720Z",
       "preservedFromPrevious": true
     }
   ]
