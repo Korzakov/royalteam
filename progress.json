@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-18T12:46:13.696Z",
+  "generatedAt": "2026-11-18T21:11:02.079Z",
   "source": "warcraftlogs",
   "strategy": "last-10-reports",
   "teams": [
@@ -16,12 +16,12 @@
       "progressText": "6/10 M",
       "rankings": {
         "worldRank": {
-          "number": 3232,
+          "number": 3235,
           "percentile": null,
           "color": "uncommon"
         },
         "regionRank": {
-          "number": 1437,
+          "number": 1438,
           "percentile": null,
           "color": "uncommon"
         },
@@ -34,17 +34,13 @@
       "latestKill": {
         "name": "Nek'zali the Soulcoiler",
         "difficulty": "Mythic",
-        "reportCode": "9dgAxWn3LNjc8aYX",
-        "endTime": "2026-11-11T20:59:54.330Z"
+        "reportCode": "zVwTMnd8aG9FHfZ3",
+        "endTime": "2026-11-18T21:05:18.277Z"
       },
       "killedBosses": [
         {
           "id": 3470,
           "name": "Nek'zali the Soulcoiler"
-        },
-        {
-          "id": 3497,
-          "name": "The Lost Explorers"
         },
         {
           "id": 3445,
@@ -53,6 +49,10 @@
         {
           "id": 3455,
           "name": "Vashnik the Malignant"
+        },
+        {
+          "id": 3497,
+          "name": "The Lost Explorers"
         },
         {
           "id": 3420,
@@ -64,7 +64,7 @@
         }
       ],
       "reportsScanned": 10,
-      "lastUpdated": "2026-11-18T12:46:11.137Z"
+      "lastUpdated": "2026-11-18T21:10:57.780Z"
     },
     {
       "name": "Templars",
@@ -79,12 +79,12 @@
       "progressText": "1/10 M",
       "rankings": {
         "worldRank": {
-          "number": 4228,
+          "number": 4229,
           "percentile": null,
           "color": "uncommon"
         },
         "regionRank": {
-          "number": 1862,
+          "number": 1863,
           "percentile": null,
           "color": "uncommon"
         },
@@ -107,7 +107,7 @@
         }
       ],
       "reportsScanned": 10,
-      "lastUpdated": "2026-11-18T12:46:13.696Z",
+      "lastUpdated": "2026-11-18T21:11:02.079Z",
       "preservedFromPrevious": true
     }
   ]
